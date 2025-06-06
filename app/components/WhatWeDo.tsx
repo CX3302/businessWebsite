@@ -1,325 +1,280 @@
 'use client';
 
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
+/*
+  =====================================================================
+  FuneralTech — «What We Do»
+  Animated three‑layer feature map inspired by Instalily.ai
+  ---------------------------------------------------------------------
+  • Row 1  ➜  Data Analytics     (insight generation)
+  • Row 2  ➜  AI Agents          (decision layer)
+  • Row 3  ➜  Action Items       (execution layer)
+  ---------------------------------------------------------------------
+  Visual behaviour
+  ‑ Cards cycle focus automatically every 3 s (autoplay).  
+  ‑ Hovering a card pauses autoplay and highlights that card.  
+  ‑ Connection lines have a continuous dash‑offset animation to suggest
+    data flow between layers.
+  =====================================================================
+*/
+
+/* -----------------------------
+   Data model for all features
+------------------------------*/
 const features = [
+  // Row 1 — Data Analytics
   {
-    title: 'Process Automation',
-    description: 'Streamline your workflows with intelligent automation that learns and adapts.',
-    icon: '🤖',
-    color: 'from-blue-500 to-cyan-500',
-    bgPattern: 'radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 70%)'
-  },
-  {
-    title: 'Data Analysis',
-    description: 'Transform raw data into actionable insights with our AI-powered analytics.',
+    id: 'operational-analytics',
+    title: 'Operational Analytics',
+    description:
+      'Live dashboards surface daily case volumes, staff workload and fleet usage so directors can react quickly.',
     icon: '📊',
+    color: 'from-blue-500 to-cyan-500',
+    connections: ['scheduling-agent', 'capacity-forecast', 'revenue-insights']
+  },
+  {
+    id: 'capacity-forecast',
+    title: 'Capacity Forecasting',
+    description: 'AI projects case load 7‑30 days ahead, helping managers right‑size teams and avoid burnout.',
+    icon: '📈',
+    color: 'from-indigo-500 to-purple-500',
+    connections: ['scheduling-agent', 'operational-analytics']
+  },
+  {
+    id: 'revenue-insights',
+    title: 'Revenue Insights',
+    description: 'Track memorial sales, preneed opportunities and margins in one place to fuel smarter growth.',
+    icon: '💰',
     color: 'from-emerald-500 to-green-500',
-    bgPattern: 'radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 70%)'
+    connections: ['upsell-agent', 'keepsake-checkout']
+  },
+  // Row 2 — AI Agents
+  {
+    id: 'scheduling-agent',
+    title: 'Scheduling Agent',
+    description: 'Detects conflicts and automatically books chapels, vehicles and staff, with real‑time vendor sync.',
+    icon: '🗓️',
+    color: 'from-purple-500 to-pink-500',
+    connections: ['real-time-alerts', 'aftercare-agent']
   },
   {
-    title: 'Custom AI Solutions',
-    description: 'Tailored AI solutions designed specifically for your business needs.',
-    icon: '🎯',
-    color: 'from-purple-500 to-violet-500',
-    bgPattern: 'radial-gradient(circle at 80% 30%, rgba(147, 51, 234, 0.1) 0%, transparent 70%)'
+    id: 'aftercare-agent',
+    title: 'Aftercare Agent',
+    description: 'Sends compassionate 3‑day, 30‑day and anniversary check‑ins, keeping families supported and loyal.',
+    icon: '🤝',
+    color: 'from-teal-500 to-emerald-500',
+    connections: ['follow-up-flow', 'capacity-forecast']
   },
   {
-    title: 'Integration Services',
-    description: 'Seamlessly integrate AI automation with your existing systems.',
-    icon: '🔄',
+    id: 'upsell-agent',
+    title: 'Upsell Agent',
+    description: 'Recommends keepsakes and preneed plans using personalized AI text generation.',
+    icon: '🎁',
+    color: 'from-pink-500 to-rose-500',
+    connections: ['keepsake-checkout', 'revenue-insights']
+  },
+  // Row 3 — Action Items
+  {
+    id: 'real-time-alerts',
+    title: 'Real-Time Alerts',
+    description: 'Instant Slack/SMS notifications when schedule conflicts or last‑minute cases appear.',
+    icon: '🚨',
     color: 'from-orange-500 to-red-500',
-    bgPattern: 'radial-gradient(circle at 20% 70%, rgba(249, 115, 22, 0.1) 0%, transparent 70%)'
+    connections: []
+  },
+  {
+    id: 'follow-up-flow',
+    title: 'Family Follow‑Up Flow',
+    description: 'Automated CRM tasks and message sequences ensure no family slips through the cracks.',
+    icon: '📱',
+    color: 'from-yellow-500 to-orange-500',
+    connections: []
+  },
+  {
+    id: 'keepsake-checkout',
+    title: 'Keepsake Checkout',
+    description: 'Shopify‑powered cart (→ Stripe → QuickBooks) for memorial products synced with after‑care messages.',
+    icon: '🛒',
+    color: 'from-indigo-500 to-blue-500',
+    connections: []
   }
-];
+] as const;
 
-// Floating orb component for background animation
-const FloatingOrb = ({ delay = 0, duration = 20, size = 100, opacity = 0.1 }: {
-  delay?: number;
-  duration?: number;
-  size?: number;
-  opacity?: number;
-}) => {
+/* -----------------------------
+   Helper component — ConnectionLine
+------------------------------*/
+const ConnectionLine = ({ from, to }: { from: { x: number; y: number }; to: { x: number; y: number } }) => {
+  if (!from || !to) return null;
+  const midX = (from.x + to.x) / 2;
+  const midY = (from.y + to.y) / 2 - 40;
+  const path = `M ${from.x} ${from.y} Q ${midX} ${midY} ${to.x} ${to.y}`;
+
   return (
-    <motion.div
-      className="absolute rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 blur-xl"
-      style={{
-        width: size,
-        height: size,
-        opacity: opacity,
-      }}
-      animate={{
-        x: [0, 100, 0, -100, 0],
-        y: [0, -100, 0, 100, 0],
-        scale: [1, 1.2, 1, 0.8, 1],
-      }}
-      transition={{
-        duration: duration,
-        delay: delay,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
+    <motion.path
+      d={path}
+      fill="none"
+      stroke="url(#gradient)"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeDasharray="6 6"
+      /* dash‑offset animation gives perpetual motion */
+      animate={{ strokeDashoffset: [12, 0] }}
+      transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
     />
   );
 };
 
-// 3D Feature Card Component
-const FeatureCard = ({ feature, index }: { feature: typeof features[0]; index: number }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
+/* -----------------------------
+   Helper component — FeatureCard
+------------------------------*/
+const FeatureCard = ({ feature, position, isFocused, setFocus }: any) => {
+  /* subtle 3‑D tilt on mouse */
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useSpring(useTransform(mouseY, [-80, 80], [10, -10]));
+  const rotateY = useSpring(useTransform(mouseX, [-80, 80], [-10, 10]));
 
-  const springConfig = { stiffness: 100, damping: 15 };
-  const x = useSpring(0, springConfig);
-  const y = useSpring(0, springConfig);
-  const rotateX = useSpring(0, springConfig);
-  const rotateY = useSpring(0, springConfig);
-
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    
-    const rect = cardRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    
-    const rotateXValue = (event.clientY - centerY) / 10;
-    const rotateYValue = (centerX - event.clientX) / 10;
-    
-    rotateX.set(rotateXValue);
-    rotateY.set(rotateYValue);
-    x.set((event.clientX - centerX) / 20);
-    y.set((event.clientY - centerY) / 20);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    rotateX.set(0);
-    rotateY.set(0);
-    x.set(0);
-    y.set(0);
+  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set(e.clientX - rect.left - rect.width / 2);
+    mouseY.set(e.clientY - rect.top - rect.height / 2);
+    setFocus(feature.id);
   };
 
   return (
     <motion.div
-      ref={cardRef}
-      className="relative group cursor-pointer"
-      style={{
-        x,
-        y,
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
-      initial={{ opacity: 0, z: -100 }}
-      whileInView={{ opacity: 1, z: 0 }}
-      viewport={{ once: true }}
-      transition={{ 
-        duration: 0.8, 
-        delay: index * 0.2,
-        type: "spring",
-        stiffness: 100,
-        damping: 15
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      whileHover={{ scale: 1.05 }}
+      className="absolute"
+      style={{ left: position.x - 120, top: position.y - 100, width: 240, height: 200, rotateX, rotateY, transformPerspective: 800 }}
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.4 }}
+      onMouseMove={handleMove}
+      onMouseLeave={() => setFocus(null)}
     >
-      {/* Card Background with Gradient */}
-      <div 
-        className="relative bg-white rounded-3xl p-8 shadow-xl border border-gray-100 overflow-hidden transition-all duration-500"
-        style={{
-          background: isHovered ? `linear-gradient(135deg, white 0%, rgba(255,255,255,0.9) 100%), ${feature.bgPattern}` : 'white',
-          transform: isHovered ? 'translateZ(20px)' : 'translateZ(0px)',
-        }}
+      <motion.div
+        className={`relative w-full h-full bg-white rounded-2xl p-6 cursor-pointer overflow-hidden group ${isFocused ? 'shadow-2xl' : 'shadow-lg'}`}
+        whileHover={{ scale: 1.05 }}
       >
-        {/* Animated Background Pattern */}
-        <div className="absolute inset-0 opacity-30">
-          <motion.div
-            className="absolute inset-0"
-            style={{ background: feature.bgPattern }}
-            animate={{
-              backgroundPosition: isHovered ? ['0% 0%', '100% 100%'] : ['0% 0%', '0% 0%'],
-            }}
-            transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-          />
-        </div>
-
-        {/* Floating Icon */}
-        <motion.div 
-          className="relative z-10 text-5xl mb-6 flex justify-center"
-          animate={{
-            y: isHovered ? [-5, 5, -5] : [0],
-            rotateY: isHovered ? [0, 360] : [0],
-          }}
-          transition={{
-            y: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-            rotateY: { duration: 1.5, ease: "easeInOut" }
-          }}
-          style={{
-            transformStyle: "preserve-3d",
-            transform: isHovered ? 'translateZ(30px)' : 'translateZ(10px)',
-          }}
-        >
-          {feature.icon}
-        </motion.div>
-
-        {/* Title with Gradient */}
-        <motion.h3 
-          className={`text-xl font-bold mb-4 text-center bg-gradient-to-r ${feature.color} bg-clip-text text-transparent`}
-          style={{
-            transform: isHovered ? 'translateZ(20px)' : 'translateZ(0px)',
-          }}
-          animate={{
-            backgroundPosition: isHovered ? ['0% 50%', '100% 50%', '0% 50%'] : ['0% 50%'],
-          }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          {feature.title}
-        </motion.h3>
-
-        {/* Description */}
-        <motion.p 
-          className="text-gray-600 text-center leading-relaxed"
-          style={{
-            transform: isHovered ? 'translateZ(15px)' : 'translateZ(0px)',
-          }}
-        >
-          {feature.description}
-        </motion.p>
-
-        {/* Glow Effect */}
+        {/* Glow */}
         <motion.div
-          className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${feature.color} opacity-0 blur-xl -z-10`}
-          animate={{
-            opacity: isHovered ? 0.2 : 0,
-          }}
-          transition={{ duration: 0.3 }}
+          className={`absolute -inset-px rounded-2xl bg-gradient-to-br ${feature.color} blur-lg`}
+          style={{ opacity: isFocused ? 0.8 : 0.15, zIndex: -1 }}
+          animate={{ opacity: [0.15, 0.4, 0.15] }}
+          transition={{ duration: 4, repeat: Infinity, repeatType: 'mirror' }}
         />
-
-        {/* Interactive Particles */}
-        {isHovered && (
-          <div className="absolute inset-0 pointer-events-none">
-            {[...Array(6)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-1 h-1 bg-blue-400 rounded-full"
-                initial={{
-                  x: Math.random() * 300,
-                  y: Math.random() * 200,
-                  opacity: 0,
-                }}
-                animate={{
-                  y: Math.random() * 200 - 50,
-                  opacity: [0, 1, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  delay: i * 0.1,
-                  repeat: Infinity,
-                }}
-              />
-            ))}
+        {/* Content */}
+        <div className="relative z-10 h-full flex flex-col justify-between">
+          <div className="text-4xl">{feature.icon}</div>
+          <div>
+            <h3 className="text-base font-semibold text-gray-900 mb-1">{feature.title}</h3>
+            <p className="text-xs text-gray-600 leading-tight">{feature.description}</p>
           </div>
-        )}
-      </div>
+        </div>
+      </motion.div>
     </motion.div>
   );
 };
 
+/* -----------------------------
+   Main component — WhatWeDo
+------------------------------*/
 const WhatWeDo = () => {
-  const containerRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
+  // Layout calcs
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [positions, setPositions] = useState<Record<string, { x: number; y: number }>>({});
+  const layout = [
+    ['operational-analytics', 'capacity-forecast', 'revenue-insights'],
+    ['scheduling-agent', 'aftercare-agent', 'upsell-agent'],
+    ['real-time-alerts', 'follow-up-flow', 'keepsake-checkout']
+  ];
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  useEffect(() => {
+    const calc = () => {
+      if (!containerRef.current) return;
+      const w = containerRef.current.offsetWidth;
+      const cardW = 240;
+      const hSpacing = 320;
+      const vSpacing = 250;
+      const temp: Record<string, { x: number; y: number }> = {};
+      layout.forEach((row, r) => {
+        const rowWidth = row.length * hSpacing - (hSpacing - cardW);
+        const startX = (w - rowWidth) / 2 + cardW / 2;
+        const y = 80 + r * vSpacing;
+        row.forEach((id, c) => (temp[id] = { x: startX + c * hSpacing, y }));
+      });
+      setPositions(temp);
+    };
+    calc();
+    window.addEventListener('resize', calc);
+    return () => window.removeEventListener('resize', calc);
+  }, []);
+
+  // Autoplay focus cycling
+  const [focus, setFocus] = useState<string | null>(null);
+  const focusRef = useRef<boolean>(false);
+
+  useEffect(() => {
+    focusRef.current = !!focus;
+  }, [focus]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (focusRef.current) return; // pause on hover
+      setFocus(prev => {
+        const idx = features.findIndex(f => f.id === prev);
+        const next = features[(idx + 1) % features.length];
+        return next.id;
+      });
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Connections for all features
+  const allConnections = features.flatMap(f =>
+    f.connections.map(to => ({ from: positions[f.id], to: positions[to], key: `${f.id}-${to}` }))
+  );
 
   return (
-    <section ref={containerRef} className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <FloatingOrb delay={0} duration={25} size={120} opacity={0.08} />
-        <FloatingOrb delay={5} duration={30} size={80} opacity={0.06} />
-        <FloatingOrb delay={10} duration={20} size={150} opacity={0.04} />
-        <FloatingOrb delay={15} duration={35} size={100} opacity={0.07} />
-      </div>
-
-      {/* Mesh Gradient Background */}
-      <motion.div 
-        className="absolute inset-0 opacity-30"
-        style={{ y: backgroundY }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-100 via-purple-50 to-pink-100" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-blue-100 to-transparent" />
-      </motion.div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <motion.div 
-          className="text-center mb-20"
-          style={{ y: textY }}
-        >
-          <motion.h2 
-            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent"
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
-          >
+    <section className="py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <motion.h2 className="text-4xl font-bold text-gray-900" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             What We Do
           </motion.h2>
-          
-          <motion.div
-            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full"
-            initial={{ width: 0 }}
-            whileInView={{ width: 96 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.5 }}
-          />
-
-          <motion.p 
-            className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            We leverage cutting-edge AI technology to transform your business operations with intelligent solutions that adapt and evolve
+          <motion.p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
+            We blend powerful data analytics, specialized AI agents and automated action flows to keep every service on schedule and every family cared for.
           </motion.p>
-        </motion.div>
-
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
-            <FeatureCard key={feature.title} feature={feature} index={index} />
-          ))}
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 1 }}
-        >
-          <motion.button
-            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 20px 40px rgba(0,0,0,0.2)"
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Discover Our Solutions
-          </motion.button>
-        </motion.div>
+        <div ref={containerRef} className="relative h-[760px] mx-auto">
+          {/* SVG lines */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none">
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#8B5CF6" />
+                <stop offset="100%" stopColor="#3B82F6" />
+              </linearGradient>
+            </defs>
+            {allConnections.map(({ from, to, key }) => from && to && from.y < to.y && <ConnectionLine key={key} from={from} to={to} />)}
+          </svg>
+
+          {/* Feature cards */}
+          {Object.keys(positions).length > 0 &&
+            features.map(f => (
+              <FeatureCard
+                key={f.id}
+                feature={f}
+                position={positions[f.id]}
+                isFocused={focus === f.id}
+                setFocus={setFocus}
+              />
+            ))}
+        </div>
       </div>
     </section>
   );
 };
 
-export default WhatWeDo; 
+export default WhatWeDo;

@@ -11,7 +11,7 @@ const Hero = () => {
         <div className="absolute -bottom-1/2 -left-1/4 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10">
         <div className="text-center">
           <motion.h1 
             className="text-5xl md:text-7xl font-bold text-gray-900 mb-8"
@@ -61,4 +61,4 @@ const Hero = () => {
   );
 };
 
-export default Hero; 
+export default Hero;
