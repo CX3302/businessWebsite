@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -26,12 +27,12 @@ const Navigation = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <button 
-            onClick={() => scrollToSection('hero')}
+          <Link 
+            href="/"
             className="text-2xl font-bold text-funeral-black hover:text-funeral-gray transition-colors"
           >
             Bastl Funeral Services
-          </button>
+          </Link>
           
           <div className="hidden md:flex items-center space-x-8">
             <button 
@@ -40,12 +41,12 @@ const Navigation = () => {
             >
               Overview
             </button>
-            <a 
+            <Link 
               href="/solutions"
               className="text-funeral-black hover:text-funeral-gray transition-colors font-medium"
             >
               Our Solutions
-            </a>
+            </Link>
             <button 
               onClick={() => scrollToSection('about')}
               className="text-funeral-black hover:text-funeral-gray transition-colors font-medium"
@@ -65,4 +66,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation; 
+export default Navigation;

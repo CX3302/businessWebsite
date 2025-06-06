@@ -101,15 +101,15 @@ const Services = () => {
 
               <div className="grid md:grid-cols-2 gap-8 md:gap-12">
                 {/* Problem Section */}
-                <div className="bg-white rounded-lg p-6 border-l-4 border-red-500">
+                <div className="bg-white rounded-lg p-6 border-l-4 border-gray-600">
                   <h4 className="text-2xl font-bold text-funeral-black mb-4 flex items-center">
-                    <span className="text-red-500 mr-2">⚠️</span>
+                    <span className="text-gray-600 mr-2">⚠️</span>
                     {service.problem.title}
                   </h4>
                   <ul className="space-y-3">
                     {service.problem.points.map((point, pointIndex) => (
                       <li key={pointIndex} className="flex items-start">
-                        <span className="text-red-500 mr-2 mt-1">•</span>
+                        <span className="text-gray-600 mr-2 mt-1">•</span>
                         <span className="text-gray-700">{point}</span>
                       </li>
                     ))}
@@ -117,16 +117,16 @@ const Services = () => {
                 </div>
 
                 {/* Solution Section */}
-                <div className="bg-white rounded-lg p-6 border-l-4 border-green-500">
-                  <h4 className="text-2xl font-bold text-funeral-black mb-4 flex items-center">
-                    <span className="text-green-500 mr-2">✅</span>
+                <div className="bg-funeral-black text-white rounded-lg p-6 border-l-4 border-gray-400">
+                  <h4 className="text-2xl font-bold mb-4 flex items-center">
+                    <span className="text-gray-400 mr-2">✅</span>
                     {service.solution.title}
                   </h4>
                   <ul className="space-y-3">
                     {service.solution.points.map((point, pointIndex) => (
                       <li key={pointIndex} className="flex items-start">
-                        <span className="text-green-500 mr-2 mt-1">•</span>
-                        <span className="text-gray-700">{point}</span>
+                        <span className="text-gray-400 mr-2 mt-1">•</span>
+                        <span className="text-gray-300">{point}</span>
                       </li>
                     ))}
                   </ul>
@@ -158,4 +158,4 @@ const Services = () => {
   );
 };
 
-export default Services; 
+export default Services;
