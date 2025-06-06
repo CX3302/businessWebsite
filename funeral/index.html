@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bastl Funeral Services - AI-Powered Solutions for Funeral Homes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'funeral-black': '#1a1a1a',
+                        'funeral-gray': '#2d2d2d',
+                        'funeral-light-gray': '#f8f8f8',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fadeInLeft {
+            animation: fadeInLeft 0.8s ease-out forwards;
+        }
+
+        .animate-fadeInRight {
+            animation: fadeInRight 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.1) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+
+        .nav-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white text-funeral-black">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <button onclick="scrollToSection('hero')" class="text-2xl font-bold text-funeral-black hover:text-funeral-gray transition-colors">
+                    Bastl Funeral Services
+                </button>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <button onclick="scrollToSection('services')" class="text-funeral-black hover:text-funeral-gray transition-colors font-medium">
+                        Overview
+                    </button>
+                    <a href="solutions.html" class="text-funeral-black hover:text-funeral-gray transition-colors font-medium">
+                        Our Solutions
+                    </a>
+                    <button onclick="scrollToSection('about')" class="text-funeral-black hover:text-funeral-gray transition-colors font-medium">
+                        About
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="bg-funeral-black text-white px-6 py-2 rounded-md hover:bg-funeral-gray transition-colors font-medium">
+                        Contact Us
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50">
+        <div class="absolute inset-0 opacity-5 hero-pattern"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-7xl font-bold text-funeral-black mb-8 leading-tight animate-fadeInUp">
+                    Professional AI Solutions
+                    <br />
+                    <span class="text-funeral-gray">for Funeral Services</span>
+                </h1>
+
+                <p class="text-xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed animate-fadeInUp" style="animation-delay: 0.2s;">
+                    Streamline your funeral home operations with intelligent scheduling and customer care solutions. 
+                    Our AI-powered tools help you serve families with dignity while reducing administrative burden and increasing efficiency.
+                </p>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <a href="solutions.html" class="bg-funeral-black text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-funeral-gray transition-colors text-center">
+                        View Our Solutions
+                    </a>
+                    <button onclick="scrollToSection('contact')" class="bg-white text-funeral-black px-8 py-4 rounded-md text-lg font-semibold border-2 border-funeral-black hover:bg-gray-50 transition-colors">
+                        Schedule Consultation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-funeral-black mb-6 animate-fadeInUp">
+                    Our Professional Solutions
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.1s;">
+                    Designed specifically for funeral homes to enhance service quality while reducing operational stress
+                </p>
+            </div>
+
+            <div class="space-y-20">
+                <!-- Scheduling Service -->
+                <div class="bg-gray-50 rounded-xl p-8 md:p-12 animate-fadeInUp">
+                    <div class="text-center mb-10">
+                        <div class="text-6xl mb-4">📅</div>
+                        <h3 class="text-3xl md:text-4xl font-bold text-funeral-black mb-3">
+                            AI-Powered Scheduling System
+                        </h3>
+                        <p class="text-xl text-funeral-gray">
+                            Eliminate Double-Bookings & Optimize Resource Management
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                        <!-- Problem Section -->
+                        <div class="bg-white rounded-lg p-6 border-l-4 border-red-500">
+                            <h4 class="text-2xl font-bold text-funeral-black mb-4 flex items-center">
+                                <span class="text-red-500 mr-2">⚠️</span>
+                                The Challenge
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Whiteboards and outdated calendars lead to double-bookings of chapels, hearses, and staff</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Unpredictable case loads create scheduling chaos and staff burnout</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Manual allocation of vehicles, drivers, and facilities wastes time</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">One week might bring 2 cases, the next week 10 - impossible to predict</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Solution Section -->
+                        <div class="bg-white rounded-lg p-6 border-l-4 border-green-500">
+                            <h4 class="text-2xl font-bold text-funeral-black mb-4 flex items-center">
+                                <span class="text-green-500 mr-2">✅</span>
+                                Our AI Solution
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Real-time conflict detection prevents double-bookings automatically</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Intelligent resource allocation across staff, vehicles, and facilities</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Seamless sync between all team members and external vendors</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Smart location and logistics planning based on case requirements</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Predictive scheduling helps anticipate busy periods</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aftercare Service -->
+                <div class="bg-gray-50 rounded-xl p-8 md:p-12 animate-fadeInUp" style="animation-delay: 0.1s;">
+                    <div class="text-center mb-10">
+                        <div class="text-6xl mb-4">💝</div>
+                        <h3 class="text-3xl md:text-4xl font-bold text-funeral-black mb-3">
+                            Automated Aftercare & Revenue Optimization
+                        </h3>
+                        <p class="text-xl text-funeral-gray">
+                            Never Miss Follow-Up Opportunities Again
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                        <!-- Problem Section -->
+                        <div class="bg-white rounded-lg p-6 border-l-4 border-red-500">
+                            <h4 class="text-2xl font-bold text-funeral-black mb-4 flex items-center">
+                                <span class="text-red-500 mr-2">⚠️</span>
+                                The Challenge
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Most funeral homes don't follow up after services end</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Grieving families are left without ongoing support</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Missed opportunities for memorial sales and preneed plans</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Lost referral potential from satisfied families</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">No systematic approach to maintaining relationships</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Solution Section -->
+                        <div class="bg-white rounded-lg p-6 border-l-4 border-green-500">
+                            <h4 class="text-2xl font-bold text-funeral-black mb-4 flex items-center">
+                                <span class="text-green-500 mr-2">✅</span>
+                                Our AI Solution
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Automated CRM with thoughtful follow-up sequences (3-day, 30-day, anniversary)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">AI-generated personalized SMS and email messages</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Integrated e-commerce platform for memorial keepsakes</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Seamless Shopify → Stripe → QuickBooks integration</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2 mt-1">•</span>
+                                    <span class="text-gray-700">Drives revenue and customer loyalty with minimal staff effort</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16 animate-fadeInUp">
+                <button onclick="scrollToSection('contact')" class="bg-funeral-black text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-funeral-gray transition-colors">
+                    Schedule Your Consultation
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fadeInLeft">
+                    <h2 class="text-4xl md:text-5xl font-bold text-funeral-black mb-6">
+                        About Bastl Funeral Services
+                    </h2>
+                    <div class="space-y-6 text-lg text-gray-700">
+                        <p>
+                            As a specialized division of <strong class="text-funeral-black">Bastl</strong>, we bring years of AI and automation expertise specifically to the funeral services industry. 
+                            We understand the unique challenges funeral homes face and have developed solutions that respect the dignity of your work while modernizing your operations.
+                        </p>
+                        <p>
+                            Our mission is to help funeral directors focus on what matters most - <strong class="text-funeral-black">caring for families during their most difficult times</strong> - 
+                            while our AI handles the complex scheduling, follow-up, and administrative tasks that can overwhelm your staff.
+                        </p>
+                        <p>
+                            We've worked closely with funeral home owners and staff to understand pain points like double-bookings, missed follow-ups, and the unpredictable nature of case loads. 
+                            Our solutions are built with <strong class="text-funeral-black">sensitivity, professionalism, and respect</strong> at their core.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg animate-fadeInRight">
+                    <h3 class="text-2xl font-bold text-funeral-black mb-6">Why Choose Bastl?</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-funeral-black rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="text-white text-sm font-bold">✓</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-funeral-black">Industry Expertise</h4>
+                                <p class="text-gray-600">Deep understanding of funeral home operations and challenges</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-funeral-black rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="text-white text-sm font-bold">✓</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-funeral-black">Respectful Technology</h4>
+                                <p class="text-gray-600">Solutions designed with dignity and sensitivity</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-funeral-black rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="text-white text-sm font-bold">✓</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-funeral-black">Proven AI Solutions</h4>
+                                <p class="text-gray-600">Advanced automation that actually works for your business</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-funeral-black rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="text-white text-sm font-bold">✓</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-funeral-black">Dedicated Support</h4>
+                                <p class="text-gray-600">Ongoing assistance to ensure smooth operations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16 bg-funeral-black text-white rounded-xl p-8 animate-fadeInUp">
+                <h3 class="text-3xl font-bold mb-4">Ready to Transform Your Operations?</h3>
+                <p class="text-xl mb-6 text-gray-300">
+                    Join funeral homes that have streamlined their operations and improved family care with our AI solutions.
+                </p>
+                <button onclick="scrollToSection('contact')" class="bg-white text-funeral-black px-8 py-4 rounded-md text-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Get Started Today
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-funeral-black mb-6 animate-fadeInUp">
+                    Schedule Your Consultation
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.1s;">
+                    Let's discuss how our AI solutions can streamline your funeral home operations and improve family care.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="animate-fadeInLeft">
+                    <div class="bg-gray-50 rounded-xl p-8">
+                        <h3 class="text-2xl font-bold text-funeral-black mb-6">Get in Touch</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-funeral-black rounded-lg flex items-center justify-center mr-4">
+                                    <span class="text-white text-xl">📞</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-funeral-black">Phone</h4>
+                                    <p class="text-gray-600">(555) 123-4567</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-funeral-black rounded-lg flex items-center justify-center mr-4">
+                                    <span class="text-white text-xl">✉️</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-funeral-black">Email</h4>
+                                    <p class="text-gray-600">funeral@bastl.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-funeral-black rounded-lg flex items-center justify-center mr-4 mt-1">
+                                    <span class="text-white text-xl">🕒</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-funeral-black">Business Hours</h4>
+                                    <p class="text-gray-600">
+                                        Monday - Friday: 8:00 AM - 6:00 PM<br />
+                                        Saturday: 9:00 AM - 4:00 PM<br />
+                                        Emergency Support Available 24/7
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 p-6 bg-white rounded-lg border-l-4 border-funeral-black">
+                            <h4 class="font-bold text-funeral-black mb-2">Free Consultation Includes:</h4>
+                            <ul class="text-gray-600 space-y-1">
+                                <li>• Operational assessment of your current processes</li>
+                                <li>• Customized solution recommendations</li>
+                                <li>• Implementation timeline and pricing</li>
+                                <li>• No-obligation demonstration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="animate-fadeInRight">
+                    <form onsubmit="handleSubmit(event)" class="bg-gray-50 rounded-xl p-8">
+                        <h3 class="text-2xl font-bold text-funeral-black mb-6">Request Consultation</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-funeral-black mb-2">
+                                    Your Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-funeral-black focus:border-transparent outline-none transition-colors"
+                                    placeholder="Your full name"
+                                />
+                            </div>
+
+                            <div>
+                                <label for="funeralHome" class="block text-sm font-medium text-funeral-black mb-2">
+                                    Funeral Home Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    id="funeralHome"
+                                    name="funeralHome"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-funeral-black focus:border-transparent outline-none transition-colors"
+                                    placeholder="Your funeral home name"
+                                />
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-funeral-black mb-2">
+                                    Email Address *
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-funeral-black focus:border-transparent outline-none transition-colors"
+                                    placeholder="your@email.com"
+                                />
+                            </div>
+
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-funeral-black mb-2">
+                                    Phone Number
+                                </label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-funeral-black focus:border-transparent outline-none transition-colors"
+                                    placeholder="(555) 123-4567"
+                                />
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-funeral-black mb-2">
+                                    Message
+                                </label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="4"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-funeral-black focus:border-transparent outline-none transition-colors resize-none"
+                                    placeholder="Tell us about your current challenges and how we can help..."
+                                ></textarea>
+                            </div>
+
+                            <button
+                                type="submit"
+                                class="w-full bg-funeral-black text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-funeral-gray transition-colors"
+                            >
+                                Schedule Consultation
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Handle navigation scroll effects
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Smooth scroll to sections
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = {
+                name: formData.get('name'),
+                funeralHome: formData.get('funeralHome'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                message: formData.get('message')
+            };
+            
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('Thank you for your inquiry. We will contact you within 24 hours to schedule your consultation.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) translateX(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-fadeInUp, .animate-fadeInLeft, .animate-fadeInRight');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html> 
