@@ -117,27 +117,28 @@ const features = [
   }
 ];
 
-// Animated particle with subtle glow
+// Animated particle with enhanced smoothness
 const FlowingParticle = ({ from, to, delay = 0, color }: { from: any; to: any; delay?: number; color: string }) => {
   if (!from || !to) return null;
   
   return (
     <motion.circle
-      r="3"
+      r="2.5"
       fill={color}
-      opacity={0.6}
+      opacity={0.8}
       initial={{ x: from.x, y: from.y, scale: 0 }}
       animate={{
-        x: [from.x, (from.x + to.x) / 2, to.x],
-        y: [from.y, (from.y + to.y) / 2 - 40, to.y],
-        scale: [0, 1, 0],
+        x: [from.x, (from.x + to.x) / 2 + 20, to.x],
+        y: [from.y, (from.y + to.y) / 2 - 50, to.y],
+        scale: [0, 1.2, 0],
+        opacity: [0, 0.8, 0]
       }}
       transition={{
-        duration: 2.5,
+        duration: 2.8,
         delay,
         repeat: Infinity,
-        repeatDelay: 3,
-        ease: "easeInOut"
+        repeatDelay: 2.5,
+        ease: [0.25, 0.1, 0.25, 1] // Custom cubic-bezier for smooth flow
       }}
     />
   );
@@ -191,17 +192,20 @@ const FeatureCard = ({ feature, position, isActive, onHover }: any) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   
-  const rotateX = useSpring(useTransform(mouseY, [-100, 100], [2, -2]), { stiffness: 300, damping: 30 });
-  const rotateY = useSpring(useTransform(mouseX, [-100, 100], [-2, 2]), { stiffness: 300, damping: 30 });
+  const rotateX = useSpring(useTransform(mouseY, [-100, 100], [4, -4]), { stiffness: 400, damping: 40 });
+  const rotateY = useSpring(useTransform(mouseX, [-100, 100], [-4, 4]), { stiffness: 400, damping: 40 });
+  const depth = useSpring(useTransform(mouseX, [-100, 100], [0, 10]), { stiffness: 300, damping: 30 });
   
   const colors = layerColors[feature.layer as keyof typeof layerColors];
   
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isActive) return; // Don't apply 3D effect if already active
+    
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    mouseX.set(x);
-    mouseY.set(y);
+    mouseX.set(x * 0.5); // Reduced sensitivity for subtlety
+    mouseY.set(y * 0.5);
   };
   
   const handleMouseLeave = () => {
@@ -218,55 +222,101 @@ const FeatureCard = ({ feature, position, isActive, onHover }: any) => {
         top: position.y - 90,
         width: 280,
         height: 180,
-        rotateX,
-        rotateY,
-        transformPerspective: 1000,
-        transformStyle: "preserve-3d"
+        rotateX: isActive ? 0 : rotateX,
+        rotateY: isActive ? 0 : rotateY,
+        transformPerspective: 1200,
+        transformStyle: "preserve-3d",
+        z: isActive ? depth : 0
       }}
-      initial={{ opacity: 0, scale: 0.8, y: 20 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
+      initial={{ opacity: 0, scale: 0.9, y: 30 }}
+      animate={{ 
+        opacity: 1, 
+        scale: isActive ? 1.03 : 1, 
+        y: isActive ? -8 : 0,
+        rotateX: isActive ? -2 : undefined,
+        rotateY: isActive ? 2 : undefined
+      }}
       transition={{ 
-        duration: 0.6, 
-        delay: feature.row * 0.15 + (feature.id.charCodeAt(0) % 3) * 0.1,
+        duration: 0.7, 
+        delay: feature.row * 0.12 + (feature.id.charCodeAt(0) % 3) * 0.08,
         type: "spring",
-        stiffness: 120
+        stiffness: 100,
+        damping: 15
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={() => onHover(feature.id)}
     >
       <motion.div
-        className={`relative w-full h-full ${colors.bg} backdrop-blur-sm rounded-2xl p-6 cursor-pointer overflow-hidden border ${
-          isActive ? 'border-gray-300 shadow-xl' : 'border-gray-200 shadow-lg'
+        className={`relative w-full h-full ${colors.bg} backdrop-blur-sm rounded-2xl p-6 cursor-pointer overflow-hidden border transition-all duration-300 ${
+          isActive ? 'border-gray-300 shadow-2xl' : 'border-gray-200 shadow-lg'
         }`}
         style={{
-          boxShadow: isActive ? colors.shadow : undefined
+          boxShadow: isActive ? 
+            `${colors.shadow}, 0 25px 50px rgba(0, 0, 0, 0.08)` : 
+            '0 4px 15px rgba(0, 0, 0, 0.08)',
+          transform: isActive ? 'translateZ(20px)' : 'translateZ(0px)'
         }}
         whileHover={!isActive ? { 
-          scale: 1.02, 
-          y: -2,
-          boxShadow: colors.shadow
+          scale: 1.01, 
+          y: -3,
+          boxShadow: `${colors.shadow}, 0 15px 30px rgba(0, 0, 0, 0.12)`,
+          transform: 'translateZ(10px)'
         } : {}}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        transition={{ type: "spring", stiffness: 300, damping: 25 }}
       >
-        {/* Static gradient overlay for active state */}
+        {/* Enhanced gradient overlay for active state */}
         <motion.div
           className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} rounded-2xl`}
           initial={{ opacity: 0 }}
           animate={{
-            opacity: isActive ? 0.08 : 0,
+            opacity: isActive ? 0.06 : 0,
           }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.4 }}
         />
         
-        {/* Content */}
-        <div className="relative z-10 h-full flex flex-col">
-          <div className="text-3xl mb-3">
+        {/* Subtle inner glow for depth */}
+        <motion.div
+          className="absolute inset-0 rounded-2xl"
+          style={{
+            background: `radial-gradient(circle at 50% 0%, ${colors.glow}15 0%, transparent 50%)`,
+          }}
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: isActive ? 1 : 0,
+          }}
+          transition={{ duration: 0.4 }}
+        />
+        
+        {/* Content with subtle depth */}
+        <div className="relative z-20 h-full flex flex-col">
+          <motion.div 
+            className="text-3xl mb-3"
+            animate={isActive ? {
+              y: [0, -2, 0],
+            } : {}}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
             {feature.icon}
-          </div>
-          <h3 className="text-lg font-bold mb-2" style={{ color: colors.text }}>
+          </motion.div>
+          <motion.h3 
+            className="text-lg font-bold mb-2" 
+            style={{ color: colors.text }}
+            animate={isActive ? {
+              textShadow: [`0 0 0px ${colors.glow}00`, `0 0 8px ${colors.glow}30`, `0 0 0px ${colors.glow}00`]
+            } : {}}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
             {feature.title}
-          </h3>
+          </motion.h3>
           <p className="text-sm text-gray-600 leading-relaxed">
             {feature.description}
           </p>
@@ -491,17 +541,35 @@ const WhatWeDo = () => {
             ))}
           </AnimatePresence>
           
-          {/* Subtle background gradients */}
+          {/* Subtle background gradients with enhanced depth */}
           <div className="absolute inset-0 pointer-events-none">
             <motion.div
-              className="absolute top-0 left-1/4 w-80 h-80 rounded-full"
+              className="absolute top-0 left-1/4 w-96 h-96 rounded-full"
               style={{
-                background: 'radial-gradient(circle, rgba(168, 85, 247, 0.03) 0%, transparent 70%)',
-                filter: 'blur(40px)',
+                background: 'radial-gradient(circle, rgba(168, 85, 247, 0.04) 0%, transparent 70%)',
+                filter: 'blur(60px)',
               }}
               animate={{
-                x: [-20, 20, -20],
-                y: [-15, 15, -15],
+                x: [-30, 30, -30],
+                y: [-20, 20, -20],
+                scale: [1, 1.1, 1]
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <motion.div
+              className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full"
+              style={{
+                background: 'radial-gradient(circle, rgba(99, 102, 241, 0.04) 0%, transparent 70%)',
+                filter: 'blur(60px)',
+              }}
+              animate={{
+                x: [30, -30, 30],
+                y: [20, -20, 20],
+                scale: [1.1, 1, 1.1]
               }}
               transition={{
                 duration: 25,
@@ -509,20 +577,23 @@ const WhatWeDo = () => {
                 ease: "easeInOut"
               }}
             />
+            
+            {/* Additional floating element for depth */}
             <motion.div
-              className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full"
+              className="absolute top-1/2 left-1/2 w-64 h-64 rounded-full"
               style={{
-                background: 'radial-gradient(circle, rgba(99, 102, 241, 0.03) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(139, 92, 246, 0.02) 0%, transparent 70%)',
                 filter: 'blur(40px)',
+                transform: 'translate(-50%, -50%)'
               }}
               animate={{
-                x: [20, -20, 20],
-                y: [15, -15, 15],
+                rotate: [0, 360],
+                scale: [0.8, 1.2, 0.8]
               }}
               transition={{
                 duration: 30,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: "linear"
               }}
             />
           </div>
