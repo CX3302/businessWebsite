@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // Required for static site generation
+  output: 'export',  // Enable static exports
   images: {
-    unoptimized: true, // Required for static site generation
+    unoptimized: true, // Required for static export
+    domains: ['*'], // Allow images from all domains
   },
   // Remove trailing slashes from URLs
   trailingSlash: false,
