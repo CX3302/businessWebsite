@@ -1,3 +1,5 @@
+'use client';
+
 import Navigation from '../../components/Navigation';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
