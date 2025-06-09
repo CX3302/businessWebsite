@@ -53,15 +53,20 @@ export default function GetStartedPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Create the form data
+    const formBody = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      formBody.append(key, value);
+    });
+
     try {
-      const response = await fetch('/api/contact', {
+      // Using FormSubmit.co service
+      const response = await fetch('https://formsubmit.co/vincent.zhou026@gmail.com', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        body: formBody
       });
-      
+
       if (response.ok) {
         alert('Thank you for your message. We will get back to you soon!');
         setFormData({ name: '', email: '', company: '', phone: '', message: '' });
@@ -148,7 +153,13 @@ export default function GetStartedPage() {
           className="max-w-3xl mx-auto"
         >
           <h2 className="text-4xl font-bold text-center mb-16">Get Started</h2>
-          <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 shadow-sm">
+          <form 
+            action="https://formsubmit.co/vincent.zhou026@gmail.com" 
+            method="POST" 
+            className="bg-white rounded-xl p-8 shadow-sm"
+          >
+            <input type="hidden" name="_next" value="https://eff53a9b.businesswebsite-b20.pages.dev/get-started" />
+            <input type="hidden" name="_subject" value="New Contact Form Submission" />
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -156,11 +167,9 @@ export default function GetStartedPage() {
                 </label>
                 <input
                   type="text"
-                  id="name"
+                  name="name"
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
               </div>
               <div>
@@ -169,11 +178,9 @@ export default function GetStartedPage() {
                 </label>
                 <input
                   type="email"
-                  id="email"
+                  name="email"
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
               </div>
             </div>
@@ -184,10 +191,8 @@ export default function GetStartedPage() {
                 </label>
                 <input
                   type="text"
-                  id="company"
+                  name="company"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
-                  value={formData.company}
-                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                 />
               </div>
               <div>
@@ -196,10 +201,8 @@ export default function GetStartedPage() {
                 </label>
                 <input
                   type="tel"
-                  id="phone"
+                  name="phone"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 />
               </div>
             </div>
@@ -208,12 +211,10 @@ export default function GetStartedPage() {
                 How can we help?
               </label>
               <textarea
-                id="message"
+                name="message"
                 required
                 rows={4}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               />
             </div>
             <button

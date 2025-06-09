@@ -4,6 +4,12 @@ const nextConfig = {
   images: {
     unoptimized: true, // Required for static export
     domains: ['*'], // Allow images from all domains
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+      },
+    ],
   },
   // Remove trailing slashes from URLs
   trailingSlash: false,
