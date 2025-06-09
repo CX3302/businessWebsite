@@ -34,7 +34,7 @@ const Navigation = () => {
               <button
                 className="text-gray-700 hover:text-gray-900 transition-colors flex items-center py-4"
               >
-                Projects
+              Projects
                 <svg
                   className={`ml-1 h-4 w-4 transition-transform ${projectsDropdownOpen ? 'rotate-180' : ''}`}
                   fill="none"
@@ -58,13 +58,13 @@ const Navigation = () => {
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >
                     Current Projects
-                  </Link>
+            </Link>
                   <Link
                     href="/projects/past"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >
                     Past Projects
-                  </Link>
+            </Link>
                 </div>
               </div>
             </div>

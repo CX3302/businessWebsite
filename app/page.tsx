@@ -4,6 +4,7 @@ import Mission from './components/Mission';
 import Impact from './components/Impact';
 import Products from './components/Products';
 import Process from './components/Process';
+import Teams from './components/Teams';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Impact />
       <Products />
       <Process />
+      <Teams />
     </main>
   );
 }

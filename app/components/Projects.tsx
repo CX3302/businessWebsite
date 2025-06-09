@@ -106,8 +106,8 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Current Projects Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -161,8 +161,8 @@ const Projects = () => {
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900">{project.name}</h3>
                       <p className="text-xl text-gray-600">{project.product}</p>
-                    </div>
-                  </div>
+          </div>
+        </div>
 
                   <div className="space-y-4">
                     {project.achievements.map((achievement, i) => (
@@ -193,10 +193,10 @@ const Projects = () => {
                   </div>
                 </div>
               </motion.div>
-            ))}
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
     </div>
   );
 };
