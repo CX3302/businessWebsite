@@ -19,6 +19,8 @@ const nextConfig = {
   // Ensure we can deploy to any domain
   basePath: '',
   assetPrefix: '',
+  // Set the app directory to bastlv2
+  dir: 'bastlv2',
   webpack: (config) => {
     config.module.rules.push({
       test: /\.(png|jpg|jpeg|gif|svg)$/i,
