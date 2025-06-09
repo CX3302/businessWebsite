@@ -72,8 +72,8 @@ const Navigation = () => {
             <Link href="/research" className="text-gray-700 hover:text-gray-900 transition-colors">
               Research
             </Link>
-            <Link href="/integration" className="text-gray-700 hover:text-gray-900 transition-colors">
-              Integration
+            <Link href="/integrations" className="text-gray-700 hover:text-gray-900 transition-colors">
+              Integrations
             </Link>
             <Link 
               href="/get-started" 
