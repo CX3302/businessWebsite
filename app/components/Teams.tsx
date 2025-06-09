@@ -14,7 +14,7 @@ const teamMembers = [
     name: 'James Tan',
     role: 'CTO',
     description: 'Full-stack engineer & ML architect; previously built edge-AI payment systems for 7 000 Shenzhen transit gates. At Bastl he owns product architecture, security, and infrastructure. Passionate about performance tuning, open-source contribution, and mentoring dev teams.',
-    imagePath: '/team/james.jpg'
+    imagePath: '/images/James Tan.jpg'
   },
   {
     name: 'Wenjie Zhou',
