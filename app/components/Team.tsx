@@ -5,34 +5,22 @@ import Image from 'next/image';
 
 const team = [
   {
+    name: 'Benjamin Martindale',
+    role: 'CEO',
+    image: '/images/Benjamin Martindale.jpg',
+    bio: 'Leads vision and growth after 10+ years scaling construction, aftermarket, and SaaS ventures across North America and Europe. Combines an honours Commerce degree (U of T) with hands-on sales and go-to-market execution. Obsessive about turning messy ops into repeatable revenue engines.'
+  },
+  {
     name: 'James Tan',
-    role: 'Chief Research Officer',
-    image: '/images/James Tan.jpg',
-    bio: 'Leading AI research and development with expertise in machine learning and automation.'
-  },
-  {
-    name: 'Alex Thompson',
-    role: 'CEO & AI Architect',
-    image: '/team/alex.jpg',
-    bio: 'Expert in AI systems with 10+ years of experience in automation solutions.'
-  },
-  {
-    name: 'Sarah Chen',
     role: 'CTO',
-    image: '/team/sarah.jpg',
-    bio: 'Machine learning specialist with a focus on scalable AI implementations.'
+    image: '/images/James Tan.jpg',
+    bio: 'Full-stack engineer & ML architect; previously built edge-AI payment systems for 7,000 Shenzhen transit gates. At Bastl he owns product architecture, security, and infrastructure. Passionate about performance tuning, open-source contribution, and mentoring dev teams.'
   },
   {
-    name: 'Michael Rodriguez',
-    role: 'Head of Innovation',
-    image: '/team/michael.jpg',
-    bio: 'Leading research in advanced automation and AI integration strategies.'
-  },
-  {
-    name: 'Emily Parker',
-    role: 'Client Success Director',
-    image: '/team/emily.jpg',
-    bio: 'Ensuring seamless implementation and adoption of AI solutions.'
+    name: 'Wenjie Zhou',
+    role: 'CRO',
+    image: '/images/Wenjie Zhou.jpg',
+    bio: 'Research-driven AI strategist bridging theoretical foundations with business applications. Combines deep expertise in machine learning theory and algorithmic optimization with practical business insights. Leads research initiatives in advanced AI architectures while translating complex technical concepts into actionable business strategies.'
   }
 ];
 
