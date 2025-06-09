@@ -19,12 +19,16 @@ const nextConfig = {
   // Ensure we can deploy to any domain
   basePath: '',
   assetPrefix: '',
-  // Set the app directory to bastlv2
-  dir: 'bastlv2',
+  // Configure webpack for framer-motion
   webpack: (config) => {
     config.module.rules.push({
       test: /\.(png|jpg|jpeg|gif|svg)$/i,
       type: 'asset/resource'
+    });
+    // Add support for framer-motion in static exports
+    config.module.rules.push({
+      test: /framer-motion/,
+      sideEffects: false
     });
     return config;
   }
