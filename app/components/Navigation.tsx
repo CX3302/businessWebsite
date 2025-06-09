@@ -26,11 +26,13 @@ const Navigation = () => {
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
-            <div className="relative">
+            <div 
+              className="relative group"
+              onMouseEnter={() => setProjectsDropdownOpen(true)}
+              onMouseLeave={() => setProjectsDropdownOpen(false)}
+            >
               <button
-                onMouseEnter={() => setProjectsDropdownOpen(true)}
-                onMouseLeave={() => setProjectsDropdownOpen(false)}
-                className="text-gray-700 hover:text-gray-900 transition-colors flex items-center"
+                className="text-gray-700 hover:text-gray-900 transition-colors flex items-center py-4"
               >
                 Projects
                 <svg
@@ -43,28 +45,28 @@ const Navigation = () => {
                 </svg>
               </button>
               
-              {projectsDropdownOpen && (
-                <div
-                  onMouseEnter={() => setProjectsDropdownOpen(true)}
-                  onMouseLeave={() => setProjectsDropdownOpen(false)}
-                  className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
-                >
-                  <div className="py-1">
-                    <Link
-                      href="/projects/current"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    >
-                      Current Projects
-                    </Link>
-                    <Link
-                      href="/projects/past"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    >
-                      Past Projects
-                    </Link>
-                  </div>
+              <div
+                className={`absolute left-0 mt-0 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transform transition-all duration-200 origin-top ${
+                  projectsDropdownOpen
+                    ? 'opacity-100 scale-100'
+                    : 'opacity-0 scale-95 pointer-events-none'
+                }`}
+              >
+                <div className="py-1">
+                  <Link
+                    href="/projects/current"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Current Projects
+                  </Link>
+                  <Link
+                    href="/projects/past"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Past Projects
+                  </Link>
                 </div>
-              )}
+              </div>
             </div>
             
             <Link href="/research" className="text-gray-700 hover:text-gray-900 transition-colors">
