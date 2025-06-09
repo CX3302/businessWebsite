@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Navigation from '../components/Navigation';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 const teamMembers = [
@@ -10,7 +10,7 @@ const teamMembers = [
     name: 'Benjamin Martindale',
     role: 'CEO',
     description: 'Leads vision and growth after 10+ years scaling construction, aftermarket, and SaaS ventures across North America and Europe. Combines an honours Commerce degree (U of T) with hands-on sales and go-to-market execution. Obsessive about turning messy ops into repeatable revenue engines.',
-    imagePath: '/team/benjamin.jpg'
+    imagePath: '/images/benjamin.jpg'
   },
   {
     name: 'James Tan',
@@ -22,7 +22,7 @@ const teamMembers = [
     name: 'Wenjie Zhou',
     role: 'CRO',
     description: 'Research-driven AI strategist bridging theoretical foundations with business applications. Combines deep expertise in machine learning theory and algorithmic optimization with practical business insights. Leads research initiatives in advanced AI architectures while translating complex technical concepts into actionable business strategies.',
-    imagePath: '/team/wenjie.jpg'
+    imagePath: '/images/wenjie.jpg'
   }
 ];
 
@@ -43,39 +43,28 @@ const faqs = [
 
 export default function GetStartedPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    message: ''
-  });
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
     
-    // Create the form data
-    const formBody = new FormData();
-    Object.entries(formData).forEach(([key, value]) => {
-      formBody.append(key, value);
+    // Submit the form data
+    const formData = new FormData(form);
+    fetch('https://formsubmit.co/vincent.zhou026@gmail.com', {
+      method: 'POST',
+      body: formData
+    })
+    .then(() => {
+      setShowSuccess(true);
+      form.reset();
+      // Hide success message after 5 seconds
+      setTimeout(() => setShowSuccess(false), 5000);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('There was an error submitting the form. Please try again.');
     });
-
-    try {
-      // Using FormSubmit.co service
-      const response = await fetch('https://formsubmit.co/vincent.zhou026@gmail.com', {
-        method: 'POST',
-        body: formBody
-      });
-
-      if (response.ok) {
-        alert('Thank you for your message. We will get back to you soon!');
-        setFormData({ name: '', email: '', company: '', phone: '', message: '' });
-      } else {
-        throw new Error('Failed to send message');
-      }
-    } catch (error) {
-      alert('There was an error sending your message. Please try again.');
-    }
   };
 
   return (
@@ -150,12 +139,26 @@ export default function GetStartedPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto"
+          className="max-w-3xl mx-auto relative"
         >
           <h2 className="text-4xl font-bold text-center mb-16">Get Started</h2>
+          
+          {/* Success Message */}
+          <AnimatePresence>
+            {showSuccess && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="absolute top-0 left-0 right-0 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-4 text-center"
+              >
+                Thank you for your message! We'll be in touch soon.
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           <form 
-            action="https://formsubmit.co/vincent.zhou026@gmail.com" 
-            method="POST" 
+            onSubmit={handleSubmit}
             className="bg-white rounded-xl p-8 shadow-sm"
           >
             <input type="hidden" name="_next" value="https://eff53a9b.businesswebsite-b20.pages.dev/get-started" />
