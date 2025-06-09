@@ -5,6 +5,12 @@ import Image from 'next/image';
 
 const team = [
   {
+    name: 'James Tan',
+    role: 'Chief Research Officer',
+    image: '/images/James Tan.jpg',
+    bio: 'Leading AI research and development with expertise in machine learning and automation.'
+  },
+  {
     name: 'Alex Thompson',
     role: 'CEO & AI Architect',
     image: '/team/alex.jpg',
