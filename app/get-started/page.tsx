@@ -10,7 +10,7 @@ const teamMembers = [
     name: 'Benjamin Martindale',
     role: 'CEO',
     description: 'Leads vision and growth after 10+ years scaling construction, aftermarket, and SaaS ventures across North America and Europe. Combines an honours Commerce degree (U of T) with hands-on sales and go-to-market execution. Obsessive about turning messy ops into repeatable revenue engines.',
-    imagePath: '/images/benjamin.jpg'
+    imagePath: '/images/Benjamin Martindale.jpg'
   },
   {
     name: 'James Tan',
@@ -22,7 +22,7 @@ const teamMembers = [
     name: 'Wenjie Zhou',
     role: 'CRO',
     description: 'Research-driven AI strategist bridging theoretical foundations with business applications. Combines deep expertise in machine learning theory and algorithmic optimization with practical business insights. Leads research initiatives in advanced AI architectures while translating complex technical concepts into actionable business strategies.',
-    imagePath: '/images/wenjie.jpg'
+    imagePath: '/images/Wenjie Zhou.jpg'
   }
 ];
 

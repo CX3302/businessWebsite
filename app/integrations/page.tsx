@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const popularIntegrations = [
   { name: 'Gmail', icon: '/images/gmail.png' },
-  { name: 'GitHub', icon: '/images/github.png' },
+  { name: 'GitHub', icon: '/images/github.svg' },
   { name: 'Slack', icon: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg' },
   { name: 'Microsoft Teams', icon: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg' },
   { name: 'Jira', icon: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Jira_%28Software%29_logo.svg' },
@@ -22,7 +22,7 @@ const allIntegrations = [
   { name: 'Zoom', icon: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Zoom_logo.svg', category: 'Communication' },
   
   // Development & Version Control
-  { name: 'GitHub', icon: '/images/github.png', category: 'Development' },
+  { name: 'GitHub', icon: '/images/github.svg', category: 'Development' },
   { name: 'GitLab', icon: 'https://upload.wikimedia.org/wikipedia/commons/e/e1/GitLab_logo.svg', category: 'Development' },
   { name: 'Bitbucket', icon: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Bitbucket-blue-logomark-only.svg', category: 'Development' },
   { name: 'Jira', icon: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Jira_%28Software%29_logo.svg', category: 'Development' },
