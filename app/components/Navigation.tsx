@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [projectsDropdownOpen, setProjectsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,9 +26,47 @@ const Navigation = () => {
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/projects" className="text-gray-700 hover:text-gray-900 transition-colors">
-              Projects
-            </Link>
+            <div className="relative">
+              <button
+                onMouseEnter={() => setProjectsDropdownOpen(true)}
+                onMouseLeave={() => setProjectsDropdownOpen(false)}
+                className="text-gray-700 hover:text-gray-900 transition-colors flex items-center"
+              >
+                Projects
+                <svg
+                  className={`ml-1 h-4 w-4 transition-transform ${projectsDropdownOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {projectsDropdownOpen && (
+                <div
+                  onMouseEnter={() => setProjectsDropdownOpen(true)}
+                  onMouseLeave={() => setProjectsDropdownOpen(false)}
+                  className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+                >
+                  <div className="py-1">
+                    <Link
+                      href="/projects/current"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Current Projects
+                    </Link>
+                    <Link
+                      href="/projects/past"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      Past Projects
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+            
             <Link href="/research" className="text-gray-700 hover:text-gray-900 transition-colors">
               Research
             </Link>

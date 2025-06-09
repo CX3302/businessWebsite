@@ -1,23 +1,27 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const Products = () => {
   const products = [
     {
       name: "Fareflow",
       description: "Real-time transit payment optimization",
-      color: "from-blue-500 to-cyan-500"
+      color: "from-blue-500 to-cyan-500",
+      logo: "/logos/Fareflow.png"
     },
     {
       name: "Snapquote",
       description: "Instant, margin-safe construction estimates",
-      color: "from-purple-500 to-pink-500"
+      color: "from-purple-500 to-pink-500",
+      logo: "/logos/Snapquote.png"
     },
     {
       name: "Torque",
       description: "Unified parts and vendor tariff coordination",
-      color: "from-orange-500 to-yellow-500"
+      color: "from-orange-500 to-yellow-500",
+      logo: "/logos/Torque.png"
     }
   ];
 
@@ -44,9 +48,19 @@ const Products = () => {
           {products.map((product, index) => (
             <div 
               key={index}
-              className="rounded-2xl overflow-hidden hover:shadow-xl transition-shadow"
+              className="rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 bg-white border border-gray-100"
             >
-              <div className={`h-32 bg-gradient-to-r ${product.color}`} />
+              <div className={`h-48 bg-gradient-to-r ${product.color} p-8 flex items-center justify-center`}>
+                <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 w-32 h-32 flex items-center justify-center">
+                  <Image
+                    src={product.logo}
+                    alt={`${product.name} logo`}
+                    width={100}
+                    height={100}
+                    className="object-contain"
+                  />
+                </div>
+              </div>
               <div className="p-8">
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4">{product.name}</h3>
                 <p className="text-gray-600">{product.description}</p>
