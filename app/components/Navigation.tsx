@@ -28,17 +28,14 @@ const Navigation = () => {
             <Link href="/projects" className="text-gray-700 hover:text-gray-900 transition-colors">
               Projects
             </Link>
-            <Link href="/team" className="text-gray-700 hover:text-gray-900 transition-colors">
-              Team
+            <Link href="/research" className="text-gray-700 hover:text-gray-900 transition-colors">
+              Research
             </Link>
-            <Link href="/pricing" className="text-gray-700 hover:text-gray-900 transition-colors">
-              Pricing
-            </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-gray-900 transition-colors">
-              Contact
+            <Link href="/integration" className="text-gray-700 hover:text-gray-900 transition-colors">
+              Integration
             </Link>
             <Link 
-              href="/contact" 
+              href="/get-started" 
               className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition-colors"
             >
               Get Started

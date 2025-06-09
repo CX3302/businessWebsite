@@ -14,26 +14,22 @@ const Hero = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10">
         <div className="text-center">
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold text-gray-900 mb-8"
+            className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Automating the Future
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
-              with AI
-            </span>
+            Building the engines that let great ideas run themselves
           </motion.h1>
 
           <motion.p 
-            className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto"
+            className="text-xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            We transform businesses through intelligent automation solutions.
-            Our AI-powered tools streamline workflows, boost efficiency, and drive innovation.
+            We turn messy, people-heavy workflows into elegant AI systems—cutting waste, 
+            guarding uptime, and freeing teams to focus on the work that matters.
           </motion.p>
 
           <motion.div
@@ -43,7 +39,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <a 
-              href="/contact" 
+              href="/get-started" 
               className="bg-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-800 transition-colors"
             >
               Get Started
