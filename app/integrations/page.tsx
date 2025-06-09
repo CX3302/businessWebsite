@@ -5,39 +5,39 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const popularIntegrations = [
-  { name: 'Slack', icon: '/logos/integrations/slack.svg' },
-  { name: 'Microsoft Teams', icon: '/logos/integrations/teams.svg' },
-  { name: 'Google Workspace', icon: '/logos/integrations/google.svg' },
-  { name: 'GitHub', icon: '/logos/integrations/github.svg' },
-  { name: 'Jira', icon: '/logos/integrations/jira.svg' },
-  { name: 'Confluence', icon: '/logos/integrations/confluence.svg' },
+  { name: 'Slack', icon: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg' },
+  { name: 'Microsoft Teams', icon: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg' },
+  { name: 'Google Workspace', icon: 'https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg' },
+  { name: 'GitHub', icon: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg' },
+  { name: 'Jira', icon: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Jira_%28Software%29_logo.svg' },
+  { name: 'Confluence', icon: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Confluence_2017_icon.svg' },
 ];
 
 const allIntegrations = [
   // Development & Version Control
-  { name: 'GitHub', icon: '/logos/integrations/github.svg', category: 'Development' },
-  { name: 'GitLab', icon: '/logos/integrations/gitlab.svg', category: 'Development' },
-  { name: 'Bitbucket', icon: '/logos/integrations/bitbucket.svg', category: 'Development' },
-  { name: 'Jira', icon: '/logos/integrations/jira.svg', category: 'Development' },
-  { name: 'Confluence', icon: '/logos/integrations/confluence.svg', category: 'Development' },
+  { name: 'GitHub', icon: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg', category: 'Development' },
+  { name: 'GitLab', icon: 'https://upload.wikimedia.org/wikipedia/commons/e/e1/GitLab_logo.svg', category: 'Development' },
+  { name: 'Bitbucket', icon: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Bitbucket-blue-logomark-only.svg', category: 'Development' },
+  { name: 'Jira', icon: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Jira_%28Software%29_logo.svg', category: 'Development' },
+  { name: 'Confluence', icon: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Confluence_2017_icon.svg', category: 'Development' },
   
   // Communication
-  { name: 'Slack', icon: '/logos/integrations/slack.svg', category: 'Communication' },
-  { name: 'Microsoft Teams', icon: '/logos/integrations/teams.svg', category: 'Communication' },
-  { name: 'Discord', icon: '/logos/integrations/discord.svg', category: 'Communication' },
-  { name: 'Zoom', icon: '/logos/integrations/zoom.svg', category: 'Communication' },
+  { name: 'Slack', icon: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg', category: 'Communication' },
+  { name: 'Microsoft Teams', icon: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Microsoft_Office_Teams_%282018%E2%80%93present%29.svg', category: 'Communication' },
+  { name: 'Discord', icon: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Discord_icon.svg', category: 'Communication' },
+  { name: 'Zoom', icon: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Zoom_logo.svg', category: 'Communication' },
   
   // Cloud & Infrastructure
-  { name: 'AWS', icon: '/logos/integrations/aws.svg', category: 'Cloud' },
-  { name: 'Google Cloud', icon: '/logos/integrations/gcp.svg', category: 'Cloud' },
-  { name: 'Azure', icon: '/logos/integrations/azure.svg', category: 'Cloud' },
-  { name: 'Kubernetes', icon: '/logos/integrations/kubernetes.svg', category: 'Cloud' },
+  { name: 'AWS', icon: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg', category: 'Cloud' },
+  { name: 'Google Cloud', icon: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Google-cloud-platform.svg', category: 'Cloud' },
+  { name: 'Azure', icon: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg', category: 'Cloud' },
+  { name: 'Kubernetes', icon: 'https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg', category: 'Cloud' },
   
   // Productivity
-  { name: 'Google Workspace', icon: '/logos/integrations/google.svg', category: 'Productivity' },
-  { name: 'Microsoft 365', icon: '/logos/integrations/office365.svg', category: 'Productivity' },
-  { name: 'Notion', icon: '/logos/integrations/notion.svg', category: 'Productivity' },
-  { name: 'Asana', icon: '/logos/integrations/asana.svg', category: 'Productivity' },
+  { name: 'Google Workspace', icon: 'https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg', category: 'Productivity' },
+  { name: 'Microsoft 365', icon: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_Office_logo_%282019%E2%80%93present%29.svg', category: 'Productivity' },
+  { name: 'Notion', icon: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg', category: 'Productivity' },
+  { name: 'Asana', icon: 'https://upload.wikimedia.org/wikipedia/commons/3/3b/Asana_logo.svg', category: 'Productivity' },
 ];
 
 const IntegrationCard = ({ name, icon }: { name: string; icon: string }) => (
