@@ -19,7 +19,7 @@ export default function PastProjectsPage() {
           <p className="text-xl text-gray-600">Success stories from our completed partnerships</p>
         </motion.div>
 
-        <div className="space-y-32">
+        <div className="space-y-24 mb-32">
           {/* Torque Project */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
