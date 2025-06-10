@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "install": "cd funeral && npm install",
-    "build": "cd funeral && npm run build",
+    "build": "cd funeral && npm run build && cd .. && rm -rf out && cp -r funeral/out .",
     "start": "cd funeral && npm start",
     "dev": "cd funeral && npm run dev"
   },
