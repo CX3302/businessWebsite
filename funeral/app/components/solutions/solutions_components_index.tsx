@@ -1,7 +1,7 @@
 // app/components/solutions/index.ts
-export { default as SolutionsHero } from './SolutionsHero';
-export { default as SolutionsOverview } from './SolutionsOverview';
-export { default as SchedulingDetails } from './SchedulingDetails';
-export { default as AftercareDetails } from './AftercareDetails';
-export { default as ROICalculator } from './ROICalculator';
-export { default as CTASection } from './CTASection';
+export { default as SolutionsHero } from './solutions_hero';
+export { default as SolutionsOverview } from './solutions_overview';
+export { default as SchedulingDetails } from './scheduling_details';
+export { default as AftercareDetails } from './aftercare_details';
+export { default as ROICalculator } from './roi_calculator';
+export { default as CTASection } from './cta_section';
