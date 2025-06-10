@@ -1,0 +1,11 @@
+{
+  "name": "business-website-root",
+  "version": "1.0.0",
+  "scripts": {
+    "install": "cd funeral && npm install",
+    "build": "cd funeral && npm run build",
+    "start": "cd funeral && npm start",
+    "dev": "cd funeral && npm run dev"
+  },
+  "private": true
+} 
