@@ -2,38 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
-  --accent: #2d2d2d;
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #1a1a1a;
+    --primary: #1a1a1a;
+    --primary-foreground: #ffffff;
+    --secondary: #f8f9fa;
+    --secondary-foreground: #1a1a1a;
+    --muted: #f8f9fa;
+    --muted-foreground: #6b7280;
+    --border: #e5e7eb;
+    --input: #e5e7eb;
+    --ring: #1a1a1a;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-sans antialiased;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-gray-500 ring-offset-2;
+  }
+
+  /* Better button focus styles */
+  button:focus-visible,
+  a:focus-visible {
+    @apply outline-none ring-2 ring-offset-2;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Inter', Arial, sans-serif;
-  line-height: 1.6;
-}
+@layer components {
+  /* Custom scrollbar styles */
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-2;
+  }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
 
-/* Custom scrollbar for webkit browsers */
-::-webkit-scrollbar {
-  width: 8px;
-}
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded-full;
+  }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
-}
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 } 

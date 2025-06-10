@@ -1,17 +1,17 @@
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
-import Services from './components/Services';
+import PainPointsPreview from './components/PainPointsPreview';
 import About from './components/About';
-import Contact from './components/Contact';
+import CTAFooter from './components/CTAFooter';
 
 export default function Home() {
   return (
     <main className="bg-white">
       <Navigation />
       <Hero />
-      <Services />
+      <PainPointsPreview />
       <About />
-      <Contact />
+      <CTAFooter />
     </main>
   );
 } 
