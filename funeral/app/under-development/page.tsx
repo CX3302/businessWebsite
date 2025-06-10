@@ -2,8 +2,8 @@
 
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
-import Navigation from '../components/Navigation';
-import UpcomingProduct from '../components/UpcomingProduct';
+import Navigation from '../components/shared/Navigation';
+import UpcomingProduct from '../components/unused/UpcomingProduct';
 
 const UnderDevelopmentContent = () => {
   const searchParams = useSearchParams();

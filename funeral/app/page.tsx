@@ -1,8 +1,8 @@
-import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import PainPointsPreview from './components/PainPointsPreview';
-import About from './components/About';
-import CTAFooter from './components/CTAFooter';
+import Navigation from './components/shared/Navigation';
+import Hero from './components/home/Hero';
+import PainPointsPreview from './components/home/PainPointsPreview';
+import About from './components/home/About';
+import CTAFooter from './components/shared/CTAFooter';
 
 export default function Home() {
   return (

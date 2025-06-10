@@ -1,9 +1,9 @@
-import Navigation from '../components/Navigation';
-import ProductOverview from '../components/ProductOverview';
-import PainPointsSolutions from '../components/PainPointsSolutions';
-import HowItWorks from '../components/HowItWorks';
-import FeatureGrid from '../components/FeatureGrid';
-import CaseStudy from '../components/CaseStudy';
+import Navigation from '../components/shared/Navigation';
+import ProductOverview from '../components/product/ProductOverview';
+import PainPointsSolutions from '../components/product/PainPointsSolutions';
+import HowItWorks from '../components/product/HowItWorks';
+import FeatureGrid from '../components/product/FeatureGrid';
+import CaseStudy from '../components/product/CaseStudy';
 
 export default function Product() {
   return (

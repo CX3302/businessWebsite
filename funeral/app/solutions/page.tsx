@@ -1,6 +1,6 @@
 'use client';
 
-import Navigation from '../components/Navigation';
+import Navigation from '../components/shared/Navigation';
 import SolutionsHero from '../components/solutions/solutions_hero';
 import SolutionsOverview from '../components/solutions/solutions_overview';
 import SchedulingDetails from '../components/solutions/scheduling_details';

@@ -1,5 +1,5 @@
-import Navigation from '../components/Navigation';
-import BookDemo from '../components/BookDemo';
+import Navigation from '../components/shared/Navigation';
+import BookDemo from '../components/contact/BookDemo';
 
 export default function ContactPage() {
   return (
