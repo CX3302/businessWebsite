@@ -57,7 +57,7 @@ const CTAFooter = () => {
                   </svg>
                 </div>
                 <h3 className="font-semibold mb-2 text-white">Call Us</h3>
-                <p className="text-gray-300">(555) 123-4567</p>
+                <p className="text-gray-300">+1 (416) 805 3318</p>
               </motion.div>
               
               <motion.div 

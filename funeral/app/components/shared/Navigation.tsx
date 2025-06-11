@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -57,10 +58,17 @@ const Navigation = () => {
           {/* Logo */}
           <Link 
             href="/"
-            className="text-2xl font-bold text-gray-900 hover:text-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 rounded-md font-manrope"
+            className="flex items-center hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 rounded-md"
             aria-label="Prelude - Home"
           >
-            Prelude
+            <Image
+              src="/images/plogo.png"
+              alt="Prelude Logo"
+              width={400}
+              height={150}
+              className="h-32 w-auto"
+              priority
+            />
           </Link>
           
           {/* Desktop Navigation */}

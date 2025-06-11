@@ -68,8 +68,8 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Phone</h4>
-                    <p className="text-gray-600">(555) 123-4567</p>
+                                    <h4 className="font-semibold text-gray-900">Phone</h4>
+                <p className="text-gray-600">+1 (416) 805 3318</p>
                   </div>
                 </div>
 
@@ -185,7 +185,7 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent outline-none transition-colors"
-                    placeholder="(555) 123-4567"
+                    placeholder="+1 (416) 805 3318"
                   />
                 </div>
 

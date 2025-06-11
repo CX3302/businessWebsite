@@ -123,7 +123,7 @@ const BookDemo = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200"
-                      placeholder="(555) 123-4567"
+                      placeholder="+1 (416) 805 3318"
                     />
                   </div>
                 </div>
@@ -210,7 +210,7 @@ const BookDemo = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Call Us</h4>
-                    <p className="text-gray-600">(555) 123-4567</p>
+                    <p className="text-gray-600">+1 (416) 805 3318</p>
                     <p className="text-sm text-gray-500">Mon-Fri, 9 AM - 6 PM EST</p>
                   </div>
                 </div>
