@@ -15,6 +15,12 @@ module.exports = {
         'bastl-dark': '#1a1a1a',
         'bastl-gray': '#2d2d2d',
       },
+      fontFamily: {
+        'manrope': ['Manrope', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'display': ['Manrope', 'sans-serif'],
+      },
     },
   },
   plugins: [],

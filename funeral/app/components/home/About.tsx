@@ -14,11 +14,11 @@ const About = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 font-manrope">
               About Prelude
             </h2>
             
-            <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+            <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-inter">
               <p>
                 Prelude was born from a simple observation: funeral homes spend countless hours 
                 coordinating schedules, managing resources, and preventing conflicts when they 
@@ -41,14 +41,27 @@ const About = () => {
 
             <div className="mt-10 grid sm:grid-cols-2 gap-6">
               <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border border-blue-100">
-                <div className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2">500+</div>
-                <div className="text-gray-600">Hours Saved Monthly</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2 font-manrope">500+</div>
+                <div className="text-gray-600 font-inter">Staff-Hours Saved<br />Per Year</div>
               </div>
               <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border border-blue-100">
-                <div className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2">99%</div>
-                <div className="text-gray-600">Conflict Prevention Rate</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2 font-manrope">99%</div>
+                <div className="text-gray-600 font-inter">Conflict Prevention Rate</div>
               </div>
             </div>
+
+            {/* Pilot Data Disclaimer */}
+            <motion.div
+              className="mt-6"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-xs text-gray-500 font-inter text-center">
+                Based on 2025 modeling
+              </p>
+            </motion.div>
           </motion.div>
 
           {/* Right Column - Visual */}
@@ -62,32 +75,31 @@ const About = () => {
             {/* Main Card */}
             <div className="bg-gradient-to-br from-gray-900 to-blue-900 rounded-2xl p-8 text-white shadow-2xl">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-4">Why Funeral Homes Choose Prelude</h3>
+                <h3 className="text-2xl font-bold mb-4 font-manrope">Why Funeral Homes Choose Prelude</h3>
               </div>
               
               <div className="space-y-4">
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                  <span className="text-gray-300">Designed specifically for funeral home workflows</span>
+                  <span className="text-gray-300 font-inter">Fits your current software—no data re-entry</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                  <span className="text-gray-300">Integrates with existing systems seamlessly</span>
+                  <span className="text-gray-300 font-inter">24/7 live human + AI support</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                  <span className="text-gray-300">24/7 support from industry experts</span>
+                  <span className="text-gray-300 font-inter">Certified to funeral-industry data standards</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                  <span className="text-gray-300">Compliant with funeral industry standards</span>
+                  <span className="text-gray-300 font-inter">Built with directors across the USA and Canada</span>
                 </div>
               </div>
 
               <div className="mt-8 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
-                <p className="text-sm text-blue-300 font-medium">
-                  "Prelude eliminated our scheduling headaches completely. We've had zero 
-                  double-bookings since implementation." - Sarah M., Funeral Director
+                <p className="text-sm text-blue-300 font-medium font-inter">
+                  "500+ staff-hours saved per funeral home each year."
                 </p>
               </div>
             </div>
@@ -99,8 +111,8 @@ const About = () => {
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
               <div className="text-center">
-                <div className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent">73%</div>
-                <div className="text-xs text-gray-600">Time Saved</div>
+                <div className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent font-manrope">73%</div>
+                <div className="text-xs text-gray-600 font-inter">Time Saved</div>
               </div>
             </motion.div>
 
@@ -110,8 +122,8 @@ const About = () => {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             >
               <div className="text-center">
-                <div className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent">24/7</div>
-                <div className="text-xs text-gray-600">AI Coverage</div>
+                <div className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent font-manrope">24/7</div>
+                <div className="text-xs text-gray-600 font-inter">Support</div>
               </div>
             </motion.div>
           </motion.div>

@@ -169,6 +169,18 @@ const ProductOverview = () => {
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Pilot Data Disclaimer for Stats */}
+          <motion.div
+            className="mt-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+          >
+                         <p className="text-xs text-gray-500 text-center">
+               Based on 2025 modeling
+             </p>
+          </motion.div>
         </div>
 
         {/* Value Proposition */}
@@ -179,11 +191,11 @@ const ProductOverview = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            Built by Funeral Directors, for Funeral Directors
+            Built with Funeral Directors, for Funeral Homes
           </h3>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
-            We understand the unique challenges you face — unpredictable case loads, complex resource coordination, 
-            and the critical importance of flawless execution. That's why we built an AI that thinks like you do.
+            We partnered with leading funeral homes to map every pain point—from unpredictable caseloads to last-minute chapel changes. 
+            Their insights power an AI that schedules as carefully as you serve families.
           </p>
         </motion.div>
       </div>

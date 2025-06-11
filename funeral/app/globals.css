@@ -30,6 +30,15 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* Typography utilities */
+  .font-display {
+    font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
+  }
+
+  .font-body {
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  }
+
   /* Focus styles for accessibility */
   *:focus-visible {
     @apply outline-none ring-2 ring-gray-500 ring-offset-2;

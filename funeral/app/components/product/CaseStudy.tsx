@@ -7,7 +7,7 @@ const CaseStudy = () => {
   const [services, setServices] = useState(150);
 
   const calculateSavings = (servicesPerYear: number) => {
-    const hoursPerService = 0.5;
+    const hoursPerService = 10;
     const hoursSaved = servicesPerYear * hoursPerService;
     const overtimeCost = hoursSaved * 25;
     return {
@@ -109,6 +109,19 @@ const CaseStudy = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Pilot Data Disclaimer */}
+        <motion.div
+          className="mt-8 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <p className="text-xs text-gray-500">
+            Based on 2025 modeling
+          </p>
+        </motion.div>
       </div>
     </section>
   );

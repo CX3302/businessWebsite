@@ -195,6 +195,19 @@ const AftercareDetails = () => {
           </motion.div>
         </div>
 
+        {/* Pilot Data Disclaimer */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+                     <p className="text-xs text-gray-500">
+             Based on 2025 modeling
+           </p>
+        </motion.div>
+
         {/* Follow-up Timeline */}
         <motion.div 
           className="bg-white rounded-xl p-8 shadow-lg border border-gray-100"

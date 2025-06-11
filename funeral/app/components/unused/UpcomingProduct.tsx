@@ -17,7 +17,9 @@ const UpcomingProduct = ({ productInfo }: UpcomingProductProps) => {
     "Q2 2024": 75,
     "Q3 2024": 45,
     "Q4 2024": 25,
-    "Q1 2025": 15
+    "Q1 2025": 15,
+    "Q4 2025": 75,
+    "Q1 2026": 45
   }[productInfo.eta] || 30;
 
   return (

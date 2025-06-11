@@ -26,13 +26,13 @@ const UnderDevelopmentContent = () => {
       name: "Vendor Network Integration",
       description: "Direct booking and coordination with florists, musicians, and other service providers for seamless funeral planning",
       features: ["Direct vendor booking", "Automated coordination", "Payment integration", "Quality ratings system", "Preferred vendor networks", "Real-time availability"],
-      eta: "Q4 2024"
+      eta: "Q4 2025"
     },
     crm: {
       name: "Automated CRM Follow-up",
       description: "AI-powered aftercare and revenue optimization system that nurtures relationships and increases memorial sales",
       features: ["Automated follow-up sequences", "Personalized communication", "Memorial sales integration", "Revenue analytics", "Anniversary reminders", "Referral tracking"],
-      eta: "Q3 2024"
+      eta: "Q1 2026"
     }
   };
 

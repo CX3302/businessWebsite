@@ -13,21 +13,21 @@ const Roadmap = () => {
       href: "/product"
     },
     {
-      quarter: "Q2 2024",
+      quarter: "Q4 2025",
       title: "Vendor Network Integration", 
       description: "Direct booking with florists, musicians, caterers, and other service providers through integrated platform",
       status: "In Development",
       href: "/under-development?product=vendors"
     },
     {
-      quarter: "Q3 2024",
+      quarter: "Q1 2026",
       title: "Automated CRM Follow-up",
       description: "AI-powered aftercare and revenue optimization with personalized family communications and upselling",
       status: "In Development",
       href: "/under-development?product=crm"
     },
     {
-      quarter: "Q4 2024",
+      quarter: "Q3 2026",
       title: "Advanced Analytics Dashboard",
       description: "Deep insights into scheduling patterns, resource utilization, revenue trends, and business performance metrics",
       status: "Planned"

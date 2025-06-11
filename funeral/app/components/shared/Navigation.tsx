@@ -57,7 +57,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link 
             href="/"
-            className="text-2xl font-bold text-gray-900 hover:text-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 rounded-md"
+            className="text-2xl font-bold text-gray-900 hover:text-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 rounded-md font-manrope"
             aria-label="Prelude - Home"
           >
             Prelude
@@ -67,7 +67,7 @@ const Navigation = () => {
           <div className="hidden md:flex items-center space-x-6">
             <Link 
               href="/"
-              className="text-gray-700 hover:text-gray-900 transition-colors font-medium px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+              className="text-gray-700 hover:text-gray-900 transition-colors font-medium px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-inter"
             >
               Home
             </Link>
@@ -80,7 +80,7 @@ const Navigation = () => {
               onMouseLeave={handleMouseLeave}
             >
               {/* Products Button */}
-              <div className="flex items-center text-gray-700 hover:text-gray-900 transition-colors font-medium cursor-pointer px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+              <div className="flex items-center text-gray-700 hover:text-gray-900 transition-colors font-medium cursor-pointer px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-inter">
                 Products
                 <svg 
                   className={`ml-1 h-4 w-4 transition-transform duration-200 ${showProductDropdown ? 'rotate-180' : ''}`}
@@ -104,7 +104,7 @@ const Navigation = () => {
                 
                 {/* Current Product */}
                 <div className="p-3">
-                  <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide px-3 py-2">
+                  <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide px-3 py-2 font-inter">
                     Available Now
                   </div>
                   <Link 
@@ -112,10 +112,10 @@ const Navigation = () => {
                     className="block p-3 rounded-md hover:bg-gray-900 hover:text-white transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                     role="menuitem"
                   >
-                    <div className="font-semibold text-gray-900 group-hover:text-white">
+                    <div className="font-semibold text-gray-900 group-hover:text-white font-manrope">
                       {currentProduct.name}
                     </div>
-                    <div className="text-sm text-gray-600 group-hover:text-gray-300">
+                    <div className="text-sm text-gray-600 group-hover:text-gray-300 font-inter">
                       {currentProduct.description}
                     </div>
                   </Link>
@@ -126,7 +126,7 @@ const Navigation = () => {
 
                 {/* Future Products */}
                 <div className="p-3">
-                  <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide px-3 py-2">
+                  <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide px-3 py-2 font-inter">
                     Coming Soon
                   </div>
                   {futureProducts.map((product, index) => (
@@ -138,14 +138,14 @@ const Navigation = () => {
                     >
                       <div className="flex items-center justify-between">
                         <div>
-                          <div className="font-semibold text-gray-900 group-hover:text-gray-700">
+                          <div className="font-semibold text-gray-900 group-hover:text-gray-700 font-manrope">
                             {product.name}
                           </div>
-                          <div className="text-sm text-gray-600">
+                          <div className="text-sm text-gray-600 font-inter">
                             {product.description}
                           </div>
                         </div>
-                        <div className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full font-medium">
+                        <div className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full font-medium font-inter">
                           Soon
                         </div>
                       </div>
@@ -157,13 +157,13 @@ const Navigation = () => {
             
             <Link 
               href="/roadmap"
-              className="text-gray-700 hover:text-gray-900 transition-colors font-medium px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+              className="text-gray-700 hover:text-gray-900 transition-colors font-medium px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-inter"
             >
               Roadmap
             </Link>
             <Link 
               href="/contact"
-              className="bg-gray-900 text-white px-6 py-2 rounded-md hover:bg-gray-800 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+              className="bg-gray-900 text-white px-6 py-2 rounded-md hover:bg-gray-800 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-manrope"
             >
               Book Demo
             </Link>
@@ -204,28 +204,28 @@ const Navigation = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white rounded-b-lg shadow-lg border-t border-gray-100">
             <Link
               href="/"
-              className="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium"
+              className="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium font-inter"
               onClick={() => setMobileMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               href="/product"
-              className="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium"
+              className="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium font-inter"
               onClick={() => setMobileMenuOpen(false)}
             >
               AI Scheduling System
             </Link>
             <Link
               href="/roadmap"
-              className="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium"
+              className="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium font-inter"
               onClick={() => setMobileMenuOpen(false)}
             >
               Roadmap
             </Link>
             <Link
               href="/contact"
-              className="block px-3 py-2 rounded-md bg-gray-900 text-white hover:bg-gray-800 font-medium text-center"
+              className="block px-3 py-2 rounded-md bg-gray-900 text-white hover:bg-gray-800 font-medium text-center font-manrope"
               onClick={() => setMobileMenuOpen(false)}
             >
               Book Demo
