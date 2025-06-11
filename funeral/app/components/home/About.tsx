@@ -106,22 +106,22 @@ const About = () => {
 
             {/* Floating Stats Cards */}
             <motion.div
-              className="absolute -top-6 -right-6 bg-white rounded-xl p-4 shadow-lg border border-blue-100"
+              className="absolute -top-6 -right-6 bg-white rounded-xl p-4 shadow-lg border border-blue-100 w-20 h-20"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="text-center">
+              <div className="text-center h-full flex flex-col justify-center">
                 <div className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent font-manrope">73%</div>
                 <div className="text-xs text-gray-600 font-inter">Time Saved</div>
               </div>
             </motion.div>
 
             <motion.div
-              className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-lg border border-blue-100"
+              className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-lg border border-blue-100 w-20 h-20"
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             >
-              <div className="text-center">
+              <div className="text-center h-full flex flex-col justify-center">
                 <div className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent font-manrope">24/7</div>
                 <div className="text-xs text-gray-600 font-inter">Support</div>
               </div>
