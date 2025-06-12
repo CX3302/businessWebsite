@@ -1,129 +1,133 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import Logo from './Logo';
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-bastl-blue-50 to-bastl-gray-100">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute w-full h-full">
-          {/* Tech pattern overlay */}
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0)`,
-            backgroundSize: '20px 20px'
-          }} />
-          
-          {/* Animated circles */}
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0.5 }}
-            animate={{ 
-              scale: [0.8, 1.2, 0.8],
-              opacity: [0.5, 0.8, 0.5]
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute -top-1/4 -right-1/4 w-96 h-96 bg-bastl-blue-200 rounded-full mix-blend-multiply filter blur-xl"
-          />
-          <motion.div
-            initial={{ scale: 1, opacity: 0.5 }}
-            animate={{ 
-              scale: [1, 1.5, 1],
-              opacity: [0.5, 0.8, 0.5]
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute -bottom-1/4 -left-1/4 w-96 h-96 bg-bastl-accent-200 rounded-full mix-blend-multiply filter blur-xl"
-          />
-        </div>
+    <section id="hero" className="min-h-[90vh] flex items-center justify-center relative overflow-hidden">
+      {/* Tech pattern background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(0,0,0,0.05) 1px, transparent 0)',
+          backgroundSize: '24px 24px'
+        }} />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10">
+      {/* Floating elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute bg-gradient-to-br from-bastl-accent-200/20 to-bastl-primary-300/20 rounded-full"
+            style={{
+              width: Math.random() * 300 + 100,
+              height: Math.random() * 300 + 100,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              x: [0, Math.random() * 50 - 25],
+              y: [0, Math.random() * 50 - 25],
+              scale: [1, Math.random() * 0.3 + 0.8],
+            }}
+            transition={{
+              duration: Math.random() * 5 + 5,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center">
-          <motion.div 
-            className="mb-8 inline-block"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+          {/* "Powered by Advanced AI" badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="inline-block mb-6"
           >
-            <span className="bg-bastl-blue-900 text-white px-4 py-1 rounded-full text-sm font-medium">
+            <span className="bg-bastl-accent-600 text-white px-4 py-1 rounded-full text-sm font-medium">
               Powered by Advanced AI
             </span>
           </motion.div>
 
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-8 leading-tight"
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.05 }}
+            className="mb-8 flex justify-center"
           >
-            <span className="text-bastl-blue-900">Transforming</span>
+            <Logo size="xl" animated />
+          </motion.div>
+
+          <motion.h1
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-bastl-black mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            Building the engines that let
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-bastl-blue-600 to-bastl-accent-500">
-              Business with AI
-            </span>
+            great ideas run themselves
           </motion.h1>
 
-          <motion.p 
-            className="text-xl text-bastl-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed"
+          <motion.p
+            className="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            We harness cutting-edge artificial intelligence to automate complex workflows, 
-            optimize operations, and drive unprecedented efficiency gains across your organization.
+            We turn messy, people-heavy workflows into elegant AI systems—cutting waste,
+            guarding uptime, and freeing teams to focus on the work that matters.
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto"
+            className="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <a 
+            <Link 
               href="/get-started" 
-              className="group relative bg-bastl-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-bastl-blue-700 transition-all duration-300 overflow-hidden"
+              className="bg-bastl-energy-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-bastl-energy-700 transition-colors shadow-lg hover:shadow-xl"
             >
-              <span className="relative z-10">Get Started</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-bastl-blue-500 to-bastl-accent-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </a>
-            <a 
+              Start Your AI Journey
+            </Link>
+            <Link 
               href="/projects" 
-              className="group bg-white text-bastl-blue-900 px-8 py-4 rounded-xl text-lg font-semibold border-2 border-bastl-blue-200 hover:border-bastl-blue-300 hover:bg-bastl-blue-50 transition-all duration-300"
+              className="bg-white text-bastl-black px-8 py-4 rounded-lg text-lg font-semibold border-2 border-bastl-black hover:bg-gray-50 transition-colors"
             >
               View Projects
-              <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-200">→</span>
-            </a>
+              <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+            </Link>
           </motion.div>
 
           {/* Tech stats */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             {[
-              { label: 'Automation Success Rate', value: '99.9%' },
-              { label: 'Processing Speed', value: '500ms' },
-              { label: 'Efficiency Increase', value: '10x' },
-              { label: 'Cost Reduction', value: '60%' }
+              { value: '99.9%', label: 'Automation Success Rate' },
+              { value: '500ms', label: 'Processing Speed' },
+              { value: '10x', label: 'Efficiency Increase' },
+              { value: '60%', label: 'Cost Reduction' },
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl font-bold text-bastl-blue-600 mb-2">{stat.value}</div>
-                <div className="text-sm text-bastl-gray-600">{stat.label}</div>
+              <div key={stat.label} className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-bastl-primary-600 mb-2">{stat.value}</div>
+                <div className="text-gray-600 text-sm">{stat.label}</div>
               </div>
             ))}
           </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

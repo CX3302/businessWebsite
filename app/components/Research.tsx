@@ -2,178 +2,137 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Research = () => {
-  const researchAreas = [
+  const technologies = [
     {
       title: 'Natural Language Processing',
-      description: 'Advanced algorithms for understanding and generating human language, powering intelligent automation systems.',
-      stats: '98% accuracy',
-      image: '/images/nlp.jpg',
-      technologies: ['BERT', 'GPT', 'Transformer']
+      image: '/images/nlp.svg',
+      description: 'Advanced language models and semantic understanding systems that process and analyze human language with unprecedented accuracy.',
+      publications: [
+        {
+          title: 'Attention Is All You Need',
+          authors: 'Vaswani et al.',
+          journal: 'Advances in Neural Information Processing Systems 30 (NIPS 2017)',
+          link: 'https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf'
+        },
+        {
+          title: 'BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding',
+          authors: 'Devlin et al.',
+          journal: 'NAACL-HLT 2019',
+          link: 'https://aclanthology.org/N19-1423.pdf'
+        }
+      ]
     },
     {
       title: 'Computer Vision',
-      description: 'State-of-the-art visual recognition systems for automated quality control and process monitoring.',
-      stats: '99.9% precision',
-      image: '/images/vision.jpg',
-      technologies: ['CNN', 'YOLO', 'ResNet']
+      image: '/images/cv.svg',
+      description: 'State-of-the-art visual recognition systems that can understand and process images with human-level accuracy.',
+      publications: [
+        {
+          title: 'Deep Residual Learning for Image Recognition',
+          authors: 'He et al.',
+          journal: 'IEEE Conference on Computer Vision and Pattern Recognition (CVPR 2016)',
+          link: 'https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf'
+        },
+        {
+          title: 'Mask R-CNN',
+          authors: 'He et al.',
+          journal: 'IEEE International Conference on Computer Vision (ICCV 2017)',
+          link: 'https://openaccess.thecvf.com/content_iccv_2017/html/He_Mask_R-CNN_ICCV_2017_paper.html'
+        }
+      ]
     },
     {
       title: 'Predictive Analytics',
-      description: 'Machine learning models that forecast trends and identify patterns in complex business data.',
-      stats: '95% prediction rate',
-      image: '/images/analytics.jpg',
-      technologies: ['XGBoost', 'LSTM', 'Prophet']
-    }
-  ];
-
-  const publications = [
-    {
-      title: 'Optimizing Business Workflows with AI',
-      conference: 'IEEE International Conference 2024',
-      link: '#'
-    },
-    {
-      title: 'Neural Networks in Process Automation',
-      conference: 'AI Summit 2024',
-      link: '#'
-    },
-    {
-      title: 'The Future of Intelligent Systems',
-      conference: 'Tech Symposium 2024',
-      link: '#'
+      image: '/images/analytics.svg',
+      description: 'Advanced machine learning systems that can forecast trends and patterns with remarkable precision.',
+      publications: [
+        {
+          title: 'XGBoost: A Scalable Tree Boosting System',
+          authors: 'Chen & Guestrin',
+          journal: 'Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining',
+          link: 'https://dl.acm.org/doi/10.1145/2939672.2939785'
+        },
+        {
+          title: 'Deep Learning for Time Series Forecasting',
+          authors: 'Lim & Zohren',
+          journal: 'International Journal of Forecasting (2021)',
+          link: 'https://www.sciencedirect.com/science/article/abs/pii/S0169207021000637'
+        }
+      ]
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-bastl-blue-50 to-white">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-block"
-          >
-            <span className="bg-bastl-blue-900 text-white px-4 py-1 rounded-full text-sm font-medium">
-              Research & Innovation
-            </span>
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl font-bold text-bastl-blue-900 mt-6 mb-4"
-          >
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl font-bold text-bastl-blue-900 mb-4">
             Advancing AI Technology
-          </motion.h2>
+          </h2>
+          <p className="text-xl text-bastl-blue-600 max-w-3xl mx-auto">
+            Our research builds on cutting-edge academic work to deliver practical business solutions
+          </p>
+        </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-bastl-gray-600 max-w-3xl mx-auto"
-          >
-            Our research team pushes the boundaries of what's possible with artificial intelligence
-          </motion.p>
-        </div>
-
-        {/* Research Areas */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
-          {researchAreas.map((area, index) => (
+        <div className="grid md:grid-cols-3 gap-8">
+          {technologies.map((tech, index) => (
             <motion.div
-              key={area.title}
+              key={tech.title}
+              className="bg-bastl-blue-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative"
+              transition={{ delay: index * 0.1 }}
             >
-              <div className="relative h-64 mb-6 rounded-2xl overflow-hidden">
+              <div className="relative h-48 w-full">
                 <Image
-                  src={area.image}
-                  alt={area.title}
+                  src={tech.image}
+                  alt={tech.title}
                   fill
-                  className="object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bastl-blue-900/80 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="text-white font-bold text-xl mb-2">{area.title}</div>
-                  <div className="text-bastl-blue-100">{area.stats}</div>
-                </div>
               </div>
-              
-              <p className="text-bastl-gray-600 mb-4">{area.description}</p>
-              
-              <div className="flex flex-wrap gap-2">
-                {area.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-bastl-blue-50 text-bastl-blue-600 rounded-full text-sm"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-bastl-blue-900 mb-3">
+                  {tech.title}
+                </h3>
+                <p className="text-bastl-blue-600 mb-6">
+                  {tech.description}
+                </p>
+                <div className="space-y-4">
+                  <h4 className="text-sm font-semibold text-bastl-blue-700">Key Publications</h4>
+                  {tech.publications.map((pub) => (
+                    <Link
+                      key={pub.title}
+                      href={pub.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block p-4 bg-white rounded-lg hover:bg-bastl-blue-100 transition-colors"
+                    >
+                      <h5 className="font-medium text-bastl-blue-900 mb-1">
+                        {pub.title}
+                      </h5>
+                      <p className="text-sm text-bastl-blue-600">
+                        {pub.authors}
+                      </p>
+                      <p className="text-xs text-bastl-blue-500 mt-1">
+                        {pub.journal}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Publications */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-white rounded-2xl p-8 shadow-lg border border-bastl-blue-50"
-        >
-          <h3 className="text-2xl font-bold text-bastl-blue-900 mb-6">Latest Publications</h3>
-          <div className="space-y-6">
-            {publications.map((pub, index) => (
-              <motion.div
-                key={pub.title}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="flex items-center justify-between border-b border-bastl-blue-50 pb-6 last:border-0 last:pb-0"
-              >
-                <div>
-                  <h4 className="text-lg font-semibold text-bastl-blue-900 mb-1">{pub.title}</h4>
-                  <p className="text-bastl-gray-600">{pub.conference}</p>
-                </div>
-                <a
-                  href={pub.link}
-                  className="text-bastl-blue-600 hover:text-bastl-blue-700 transition-colors"
-                >
-                  Read More →
-                </a>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16"
-        >
-          <a 
-            href="/research" 
-            className="inline-flex items-center space-x-2 text-bastl-blue-600 font-semibold group"
-          >
-            <span>Explore All Research</span>
-            <span className="transform group-hover:translate-x-1 transition-transform duration-200">→</span>
-          </a>
-        </motion.div>
       </div>
     </section>
   );
