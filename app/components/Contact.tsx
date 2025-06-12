@@ -32,21 +32,21 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-20 bg-bastl-tech-900 text-white">
+    <section className="py-12 sm:py-20 bg-bastl-tech-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
-          <p className="text-xl text-bastl-gray-300 max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Get in Touch</h2>
+          <p className="text-lg sm:text-xl text-bastl-gray-300 max-w-3xl mx-auto">
             Ready to transform your business with AI? Let's discuss how we can help.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-3 gap-8 sm:gap-12">
           {/* Contact Info */}
           <div className="space-y-8">
             <motion.div

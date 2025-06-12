@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Navigation from '../components/Navigation';
 
 export default function IntegrationPage() {
   const popularIntegrations = [
@@ -186,7 +187,9 @@ export default function IntegrationPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <>
+      <Navigation />
+      <main className="min-h-screen bg-white">
       <div className="pt-24 pb-16">
         {/* Header Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -312,5 +315,6 @@ export default function IntegrationPage() {
         </div>
       </div>
     </main>
+    </>
   );
 } 

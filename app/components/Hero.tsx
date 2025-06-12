@@ -65,18 +65,18 @@ const Hero = () => {
           </motion.div>
 
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-bastl-black mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-bastl-black mb-6 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
             Building the engines that let
-            <br />
-            great ideas run themselves
+            <br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>great ideas run themselves
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 sm:mb-10 max-w-3xl mx-auto px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -86,20 +86,20 @@ const Hero = () => {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto mb-16"
+            className="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto mb-12 sm:mb-16 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <Link 
               href="/get-started" 
-              className="bg-bastl-energy-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-bastl-energy-700 transition-colors shadow-lg hover:shadow-xl"
+              className="bg-bastl-energy-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-bastl-energy-700 transition-colors shadow-lg hover:shadow-xl text-center"
             >
               Start Your AI Journey
             </Link>
             <Link 
               href="/projects" 
-              className="bg-white text-bastl-black px-8 py-4 rounded-lg text-lg font-semibold border-2 border-bastl-black hover:bg-gray-50 transition-colors"
+              className="bg-white text-bastl-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold border-2 border-bastl-black hover:bg-gray-50 transition-colors text-center group"
             >
               View Projects
               <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
@@ -108,7 +108,7 @@ const Hero = () => {
 
           {/* Tech stats */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -120,8 +120,8 @@ const Hero = () => {
               { value: '60%', label: 'Cost Reduction' },
             ].map((stat, index) => (
               <div key={stat.label} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-bastl-primary-600 mb-2">{stat.value}</div>
-                <div className="text-gray-600 text-sm">{stat.label}</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-bastl-primary-600 mb-1 sm:mb-2">{stat.value}</div>
+                <div className="text-gray-600 text-xs sm:text-sm leading-tight">{stat.label}</div>
               </div>
             ))}
           </motion.div>
