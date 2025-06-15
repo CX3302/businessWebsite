@@ -20,33 +20,34 @@ const About = () => {
             
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-inter">
               <p>
-                Prelude was born from a simple observation: funeral homes spend countless hours 
-                coordinating schedules, managing resources, and preventing conflicts when they 
-                should be focused on what matters most—caring for families during their most 
-                difficult moments.
+                Prelude was born from a simple observation: small to medium-sized businesses spend 
+                countless hours juggling scheduling, lead management, customer relationships, and 
+                team coordination when they should be focused on what matters most—growing their 
+                business and serving their customers.
               </p>
               
               <p>
-                Our AI-powered scheduling system eliminates the chaos of manual coordination, 
-                reducing double-bookings by 99% and freeing up 73% of administrative time. 
-                This isn't just software—it's peace of mind.
+                Our AI-powered business management platform eliminates operational chaos, 
+                streamlining everything from intelligent scheduling to predictive customer analytics. 
+                We reduce operational overhead by 73% while maximizing revenue opportunities. 
+                This isn't just software—it's business transformation.
               </p>
               
               <p>
-                Built specifically for funeral home operations, Prelude understands the unique 
-                challenges of your industry. From chapel availability to hearse scheduling, 
-                from staff coordination to vendor management—we handle it all automatically.
+                Built for the modern business landscape, Prelude understands the complex challenges 
+                of multi-faceted operations. From smart scheduling and lead scoring to CRM automation 
+                and employee optimization—we unify it all in one intelligent platform.
               </p>
             </div>
 
             <div className="mt-10 grid sm:grid-cols-2 gap-6">
               <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border border-blue-100">
-                <div className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2 font-manrope">500+</div>
-                <div className="text-gray-600 font-inter">Staff-Hours Saved<br />Per Year</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2 font-manrope">73%</div>
+                <div className="text-gray-600 font-inter">Operational Efficiency<br />Improvement</div>
               </div>
               <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border border-blue-100">
-                <div className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2 font-manrope">99%</div>
-                <div className="text-gray-600 font-inter">Conflict Prevention Rate</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2 font-manrope">5-in-1</div>
+                <div className="text-gray-600 font-inter">Unified Platform<br />Solution</div>
               </div>
             </div>
 
@@ -75,31 +76,31 @@ const About = () => {
             {/* Main Card */}
             <div className="bg-gradient-to-br from-gray-900 to-blue-900 rounded-2xl p-8 text-white shadow-2xl">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-4 font-manrope">Why Funeral Homes Choose Prelude</h3>
+                <h3 className="text-2xl font-bold mb-4 font-manrope">Why Businesses Choose Prelude</h3>
               </div>
               
               <div className="space-y-4">
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                  <span className="text-gray-300 font-inter">Fits your current software—no data re-entry</span>
+                  <span className="text-gray-300 font-inter">Integrates with existing business tools seamlessly</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                  <span className="text-gray-300 font-inter">24/7 live human + AI support</span>
+                  <span className="text-gray-300 font-inter">24/7 intelligent AI + human support</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                  <span className="text-gray-300 font-inter">Certified to funeral-industry data standards</span>
+                  <span className="text-gray-300 font-inter">Enterprise-grade security and compliance</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                  <span className="text-gray-300 font-inter">Built with directors across the USA and Canada</span>
+                  <span className="text-gray-300 font-inter">Built with SMB leaders across industries</span>
                 </div>
               </div>
 
               <div className="mt-8 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
                 <p className="text-sm text-blue-300 font-medium font-inter">
-                  "500+ staff-hours saved per funeral home each year."
+                  "Transformed our operations with 73% efficiency improvement."
                 </p>
               </div>
             </div>

@@ -4,17 +4,17 @@ import { motion } from 'framer-motion';
 
 const PainPointsPreview = () => {
   const painPoints = [
-    "Double-booking disasters damage your reputation",
-    "Manual coordination burns out your staff", 
-    "Resource conflicts create costly delays",
-    "Paper-based systems lead to critical errors"
+    "Scattered tools create operational chaos",
+    "Manual processes waste valuable time", 
+    "Lost leads cost thousands in revenue",
+    "Disconnected systems hide critical insights"
   ];
 
   const solutions = [
-    "AI prevents conflicts before they happen",
-    "Smart automation reduces workload by 73%",
-    "Real-time tracking eliminates confusion", 
-    "Digital system ensures 99.9% reliability"
+    "Unified platform connects all operations",
+    "AI automation reduces overhead by 73%",
+    "Intelligent lead scoring maximizes conversions", 
+    "Predictive analytics drive strategic decisions"
   ];
 
   return (
@@ -38,7 +38,7 @@ const PainPointsPreview = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            See how Prelude transforms common scheduling nightmares into seamless operations
+            See how Prelude transforms business management chaos into intelligent automation
           </motion.p>
         </div>
 
@@ -83,7 +83,7 @@ const PainPointsPreview = () => {
 
             <div className="mt-6 p-4 bg-red-50 rounded-xl">
               <p className="text-sm text-red-700 font-medium">
-                These issues cost funeral homes an average of 15+ hours per week in manual coordination
+                These issues cost businesses an average of 15+ hours per week in manual management
               </p>
             </div>
           </motion.div>
@@ -128,7 +128,7 @@ const PainPointsPreview = () => {
 
             <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
               <p className="text-sm text-blue-300 font-medium">
-                Funeral homes save 73% of coordination time while achieving 99% conflict prevention
+                Businesses achieve 73% operational efficiency improvement with 99% process reliability
               </p>
             </div>
           </motion.div>

@@ -8,70 +8,70 @@ const FeatureGrid = () => {
 
   const features = [
     {
-      feature: "Vendor Scheduling",
-      benefit: "Auto-matches vendors & chapel slots",
-      description: "Intelligently coordinates florists, musicians, and caterers with available time slots. The AI considers travel time, setup requirements, and vendor preferences to create perfect schedules.",
+      feature: "AI Scheduling Assistant",
+      benefit: "Conversational meeting intelligence",
+      description: "Natural language processing for effortless scheduling with AI-powered predictions for meeting success rates, engagement scores, and optimal timing recommendations.",
       icon: (
         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
         </svg>
       ),
-      stats: "85% faster vendor coordination"
+      stats: "92% meeting success rate"
     },
     {
-      feature: "Auto-Confirmations", 
-      benefit: "Instant email/SMS to all parties",
-      description: "Sends personalized notifications to families, staff, and vendors within seconds of scheduling. Each party receives only the information they need, formatted for clarity and professionalism.",
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
-      stats: "100% confirmation delivery rate"
-    },
-    {
-      feature: "Smart Suggestions",
-      benefit: "Recommends optimal times & resources",
-      description: "AI analyzes historical patterns, staff preferences, and resource efficiency to suggest the best scheduling options. Learns from your choices to improve recommendations over time.",
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-        </svg>
-      ),
-      stats: "92% suggestion acceptance rate"
-    },
-    {
-      feature: "Calendar Sync",
-      benefit: "Google & Outlook two-way sync",
-      description: "Real-time synchronization ensures everyone stays updated across all devices. Changes made anywhere reflect instantly, preventing communication gaps and scheduling conflicts.",
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      ),
-      stats: "Zero sync delays"
-    },
-    {
-      feature: "Role Permissions",
-      benefit: "Staff see only what they need",
-      description: "Customizable access levels protect sensitive information while ensuring staff have the data they need. Directors see everything, drivers see routes, and part-time staff see their schedules.",
-      icon: (
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.364-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-      ),
-      stats: "HIPAA compliant security"
-    },
-    {
-      feature: "Smart Integrations",
-      benefit: "Push data to forms & BI tools",
-      description: "Seamlessly exports scheduling data to your existing systems, from state forms to business intelligence platforms. Automated PDF generation saves hours of manual paperwork.",
+      feature: "Lead Intelligence",
+      benefit: "AI-powered lead scoring & assignment",
+      description: "Comprehensive lead database with automated qualification, hot/warm/cold categorization, and intelligent matching to sales representatives based on specialties and performance.",
       icon: (
         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
         </svg>
       ),
-      stats: "15+ system integrations"
+      stats: "3x higher conversion rates"
+    },
+    {
+      feature: "Customer Success Analytics",
+      benefit: "Health monitoring & churn prediction",
+      description: "Real-time customer health scores, automated risk assessment, renewal forecasting, and AI-generated recommendations for retention and growth opportunities.",
+      icon: (
+        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      stats: "85% churn prevention rate"
+    },
+    {
+      feature: "Employee Optimization",
+      benefit: "Skills-based intelligent matching",
+      description: "AI recommendations for optimal employee assignment based on event type, skills, performance history, and availability. Real-time performance tracking with team analytics.",
+      icon: (
+        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.364-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      ),
+      stats: "40% productivity improvement"
+    },
+    {
+      feature: "Predictive Dashboard",
+      benefit: "Real-time business intelligence",
+      description: "AI-powered insights into customer health, business metrics, historical performance analysis, and actionable intelligence for strategic decision-making.",
+      icon: (
+        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+      ),
+      stats: "Real-time predictive insights"
+    },
+    {
+      feature: "Vendor Management",
+      benefit: "Complete vendor ecosystem",
+      description: "Comprehensive vendor database with contact management, relationship tracking, and seamless integration with existing business workflows for streamlined operations.",
+      icon: (
+        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+      ),
+      stats: "Unified vendor coordination"
     }
   ];
 
@@ -95,7 +95,7 @@ const FeatureGrid = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            Every feature designed to save time and prevent errors in funeral home operations
+            AI-powered features that revolutionize business management from lead generation to customer success
           </motion.p>
         </div>
 
@@ -166,41 +166,41 @@ const FeatureGrid = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-3xl font-bold mb-4">Everything You Need in One Platform</h3>
+          <h3 className="text-3xl font-bold mb-4">Complete Business Intelligence Platform</h3>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            No more juggling multiple systems. Our AI integrates every aspect of funeral home scheduling 
-            into one intelligent, easy-to-use platform.
+            Unify scheduling, lead management, customer success, employee optimization, and vendor coordination 
+            into one AI-powered platform with predictive analytics and conversational interfaces.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <motion.span 
               className="bg-white/20 backdrop-blur px-6 py-3 rounded-full text-sm font-medium"
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.3)' }}
             >
-              Real-time Updates
+              Conversational AI
             </motion.span>
             <motion.span 
               className="bg-white/20 backdrop-blur px-6 py-3 rounded-full text-sm font-medium"
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.3)' }}
             >
-              Mobile Access
+              Predictive Analytics
             </motion.span>
             <motion.span 
               className="bg-white/20 backdrop-blur px-6 py-3 rounded-full text-sm font-medium"
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.3)' }}
             >
-              24/7 Support
+              Real-time Intelligence
             </motion.span>
             <motion.span 
               className="bg-white/20 backdrop-blur px-6 py-3 rounded-full text-sm font-medium"
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.3)' }}
             >
-              Bank-Level Security
+              Multi-modal Integration
             </motion.span>
             <motion.span 
               className="bg-white/20 backdrop-blur px-6 py-3 rounded-full text-sm font-medium"
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.3)' }}
             >
-              1-Hour Setup
+              Automated Workflows
             </motion.span>
           </div>
         </motion.div>

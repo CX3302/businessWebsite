@@ -12,31 +12,19 @@ const UnderDevelopmentContent = () => {
   const productInfo = {
     analytics: {
       name: "Advanced Analytics Dashboard",
-      description: "Deep insights into scheduling patterns, resource utilization, and business metrics for data-driven funeral home management",
-      features: ["Real-time performance metrics", "Predictive analytics", "Custom reporting dashboards", "Data visualization tools", "Capacity utilization analysis", "Revenue tracking"],
-      eta: "Q2 2024"
-    },
-    mobile: {
-      name: "Mobile App for Staff",
-      description: "Native iOS and Android apps for real-time schedule access and updates, keeping your team connected anywhere",
-      features: ["Real-time notifications", "Offline access capability", "Touch-friendly interface", "Push updates", "Staff coordination tools", "Emergency contact system"],
-      eta: "Q3 2024"
-    },
-    vendors: {
-      name: "Vendor Network Integration",
-      description: "Direct booking and coordination with florists, musicians, and other service providers for seamless funeral planning",
-      features: ["Direct vendor booking", "Automated coordination", "Payment integration", "Quality ratings system", "Preferred vendor networks", "Real-time availability"],
+      description: "Enhanced predictive insights and advanced business intelligence with custom reporting and comprehensive data visualization for strategic decision-making",
+      features: ["Real-time performance metrics", "Predictive analytics", "Custom reporting dashboards", "Advanced data visualization", "Business intelligence", "Strategic forecasting"],
       eta: "Q4 2025"
     },
-    crm: {
-      name: "Automated CRM Follow-up",
-      description: "AI-powered aftercare and revenue optimization system that nurtures relationships and increases memorial sales",
-      features: ["Automated follow-up sequences", "Personalized communication", "Memorial sales integration", "Revenue analytics", "Anniversary reminders", "Referral tracking"],
+    integrations: {
+      name: "Multi-Channel Integration",
+      description: "Connect all your business tools and platforms seamlessly for unified workflow automation and comprehensive business management",
+      features: ["Cross-platform connectivity", "Unified workflow automation", "API integrations", "Data synchronization", "Third-party tool support", "Seamless data flow"],
       eta: "Q1 2026"
     }
   };
 
-  const currentProduct = productInfo[product as keyof typeof productInfo] || productInfo.vendors;
+  const currentProduct = productInfo[product as keyof typeof productInfo] || productInfo.analytics;
 
   return (
     <>

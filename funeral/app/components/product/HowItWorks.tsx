@@ -40,19 +40,19 @@ const HowItWorks = () => {
   const steps = [
     {
       number: "01",
-      title: "AI Intake",
-      description: "System captures case details and requirements automatically through intelligent form processing",
+      title: "Intelligent Data Capture",
+      description: "Conversational AI captures leads, schedules meetings, and manages customer interactions through natural language processing",
       icon: (
         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
         </svg>
       ),
       color: "from-blue-500 to-blue-600"
     },
     {
       number: "02", 
-      title: "Smart Matching",
-      description: "AI analyzes availability and matches optimal resources, venues, and staff instantly",
+      title: "AI-Powered Analysis",
+      description: "Smart lead scoring, employee matching, and predictive analytics identify optimal opportunities and resource allocation",
       icon: (
         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -62,22 +62,22 @@ const HowItWorks = () => {
     },
     {
       number: "03",
-      title: "Auto-Confirmation", 
-      description: "Automated notifications sent to all parties with complete scheduling details",
+      title: "Automated Execution", 
+      description: "Intelligent workflows handle scheduling, customer success monitoring, and employee assignments automatically",
       icon: (
         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
         </svg>
       ),
       color: "from-gray-700 to-gray-800"
     },
     {
       number: "04",
-      title: "Zero Coordination",
-      description: "Everything runs automatically while you focus on serving families",
+      title: "Predictive Intelligence",
+      description: "Real-time insights and forecasting help you make strategic decisions while everything runs automatically",
       icon: (
         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
         </svg>
       ),
       color: "from-gray-800 to-gray-900"
@@ -105,7 +105,7 @@ const HowItWorks = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            Four automated steps that eliminate manual coordination forever
+            Four intelligent steps that transform your entire business operation
           </motion.p>
         </div>
 
@@ -196,7 +196,7 @@ const HowItWorks = () => {
               See It In Action
             </h3>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-              Watch how a typical service goes from initial call to fully scheduled — in under 60 seconds
+              Watch how leads transform into customers through intelligent automation — from capture to success in minutes, not hours
             </p>
           </div>
 

@@ -21,7 +21,7 @@ const SolutionsHero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Transforming funeral home operations with intelligent technology that simplifies complex processes
+            Transforming business operations with intelligent technology that unifies scheduling, leads, CRM, and team optimization
           </motion.p>
           <motion.div 
             className="text-gray-300 text-lg"
@@ -29,7 +29,7 @@ const SolutionsHero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Making technology work for you, not against you
+            One platform, endless possibilities for your business
           </motion.div>
         </div>
       </div>

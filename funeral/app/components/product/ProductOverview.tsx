@@ -5,27 +5,35 @@ import { motion } from 'framer-motion';
 const ProductOverview = () => {
   const keyFeatures = [
     {
-      title: "Real-time conflict detection",
-      description: "Instantly identifies scheduling conflicts before they happen"
+      title: "AI Scheduling Intelligence",
+      description: "Conversational AI with predictive analytics for optimal meeting times and success rates"
     },
     {
-      title: "Smart resource allocation",
-      description: "Optimizes staff, vehicles, and facility usage automatically"
+      title: "Lead Generation & Scoring",
+      description: "Comprehensive lead database with AI-powered qualification and intelligent assignment"
     },
     {
-      title: "Automated confirmations",
-      description: "Sends instant notifications to all parties involved"
+      title: "Customer Success Management",
+      description: "Health score monitoring, churn prediction, and renewal forecasting"
     },
     {
-      title: "Calendar integrations",
-      description: "Syncs seamlessly with Google and Outlook calendars"
+      title: "Employee Optimization",
+      description: "Skills-based matching and event-specific recommendations for maximum performance"
+    },
+    {
+      title: "Vendor Management",
+      description: "Complete vendor database with integration capabilities and relationship tracking"
+    },
+    {
+      title: "Predictive Analytics",
+      description: "Real-time business intelligence with forecasting and automated workflows"
     }
   ];
 
   const stats = [
     { 
-      number: "99%", 
-      label: "Conflict reduction", 
+      number: "73%", 
+      label: "Efficiency improvement", 
       icon: (
         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -33,8 +41,8 @@ const ProductOverview = () => {
       )
     },
     { 
-      number: "73%", 
-      label: "Time savings", 
+      number: "5-in-1", 
+      label: "Unified platform", 
       icon: (
         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -42,8 +50,8 @@ const ProductOverview = () => {
       )
     },
     { 
-      number: "35%", 
-      label: "Staff efficiency", 
+      number: "99%", 
+      label: "Process reliability", 
       icon: (
         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -52,7 +60,7 @@ const ProductOverview = () => {
     },
     { 
       number: "24/7", 
-      label: "AI availability", 
+      label: "AI intelligence", 
       icon: (
         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -75,7 +83,7 @@ const ProductOverview = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
             </span>
-            AI-Powered Scheduling
+            AI-Powered Business Management
           </motion.div>
           
           <motion.h1 
@@ -84,7 +92,7 @@ const ProductOverview = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            AI Scheduling System
+            Business Management Suite
           </motion.h1>
           <motion.p 
             className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
@@ -92,8 +100,8 @@ const ProductOverview = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            Transform scheduling chaos into seamless coordination. Our AI eliminates double-bookings, 
-            optimizes resources, and gives you peace of mind — all automatically.
+            Unify your entire business lifecycle with AI-powered intelligence. From lead generation to customer success, 
+            our platform integrates scheduling, CRM, employee optimization, and predictive analytics — delivering 73% efficiency improvement automatically.
           </motion.p>
         </div>
 
@@ -105,12 +113,12 @@ const ProductOverview = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Focus on Families, Not Scheduling
+              AI-Driven Business Transformation
             </h2>
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              Our intelligent system handles the complexity of funeral home coordination automatically. 
-              From the moment a case comes in, our AI ensures every detail is perfectly orchestrated — 
-              no conflicts, no confusion, just smooth operations.
+              Our unified platform manages your entire business ecosystem with intelligent automation. 
+              From conversational scheduling and lead scoring to customer success prediction and employee optimization — 
+              every decision is data-driven, every process is streamlined for maximum revenue and efficiency.
             </p>
             
             <div className="space-y-6 mb-8">
@@ -137,7 +145,7 @@ const ProductOverview = () => {
               whileTap={{ scale: 0.95 }}
               onClick={() => window.location.href = '/contact'}
             >
-              Schedule Your Demo
+              Get Started Today
             </motion.button>
           </motion.div>
 
@@ -191,11 +199,11 @@ const ProductOverview = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            Built with Funeral Directors, for Funeral Homes
+            Complete Business Intelligence Platform
           </h3>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
-            We partnered with leading funeral homes to map every pain point—from unpredictable caseloads to last-minute chapel changes. 
-            Their insights power an AI that schedules as carefully as you serve families.
+            Unified scheduling intelligence, predictive lead management, customer success analytics, employee optimization, 
+            and vendor coordination — all powered by conversational AI and real-time predictive insights for strategic decision-making.
           </p>
         </motion.div>
       </div>

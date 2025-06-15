@@ -19,21 +19,21 @@ const Navigation = () => {
   }, []);
 
   const currentProduct = {
-    name: "AI Scheduling System",
-    description: "Eliminate double-bookings forever",
+    name: "Business Management Suite",
+    description: "Complete AI-powered platform for SMBs",
     href: "/product"
   };
 
   const futureProducts = [
     {
-      name: "Vendor Network Integration",
-      description: "Direct booking with service providers", 
-      href: "/under-development?product=vendors"
+      name: "Advanced Analytics Dashboard",
+      description: "Predictive insights and business intelligence", 
+      href: "/under-development?product=analytics"
     },
     {
-      name: "Automated CRM Follow-up",
-      description: "AI-powered aftercare and revenue optimization",
-      href: "/under-development?product=crm"
+      name: "Multi-Channel Integration",
+      description: "Connect all your business tools seamlessly",
+      href: "/under-development?product=integrations"
     }
   ];
 
@@ -173,7 +173,7 @@ const Navigation = () => {
               href="/contact"
               className="bg-gray-900 text-white px-6 py-2 rounded-md hover:bg-gray-800 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-manrope"
             >
-              Book Demo
+              Get Started
             </Link>
           </div>
 

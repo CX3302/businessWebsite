@@ -16,10 +16,10 @@ const CTAFooter = () => {
           {/* Main CTA */}
           <div className="mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              Ready to End Scheduling Chaos?
+              Ready to Transform Your Business?
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Join funeral homes that have eliminated double-bookings and gained peace of mind with Prelude's intelligent scheduling system.
+              Join businesses that have unified their operations and achieved 73% efficiency improvement with Prelude's AI-powered platform.
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
@@ -27,7 +27,7 @@ const CTAFooter = () => {
                 onClick={() => window.location.href = '/contact'}
                 className="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-900 text-lg font-semibold rounded-lg hover:bg-blue-50 transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
               >
-                Book a Demo
+                Get Started
                 <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
@@ -97,7 +97,7 @@ const CTAFooter = () => {
           {/* Copyright */}
           <div className="border-t border-blue-700 mt-12 pt-8">
             <p className="text-gray-400 text-sm">
-              © 2024 Prelude. All rights reserved. Built for funeral home professionals.
+              © 2024 Prelude. All rights reserved. Built for business professionals.
             </p>
           </div>
         </motion.div>

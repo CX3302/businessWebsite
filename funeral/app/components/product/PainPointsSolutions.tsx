@@ -9,19 +9,19 @@ const PainPointsSolutions = () => {
   const problemSolutions = [
     {
       problem: {
-        title: "Double-Booking Disasters",
-        description: "Multiple families scheduled for the same chapel creates devastating conflicts.",
-        stat: "73% of funeral homes face monthly double-bookings",
+        title: "Disconnected Business Operations",
+        description: "Scheduling, leads, CRM, and team management scattered across multiple tools.",
+        stat: "73% of SMBs use 5+ separate systems",
         icon: (
           <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
         )
       },
       solution: {
-        title: "AI Conflict Prevention",
-        description: "Real-time scheduling intelligence that makes double-bookings impossible.",
-        stat: "99% conflict elimination rate",
+        title: "Unified AI Platform",
+        description: "Complete business management ecosystem with intelligent automation and predictive insights.",
+        stat: "5-in-1 platform integration",
         icon: (
           <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -31,9 +31,9 @@ const PainPointsSolutions = () => {
     },
     {
       problem: {
-        title: "Unpredictable Workload",
-        description: "Case volumes swing wildly — 2 one week, 10 the next.",
-        stat: "400% seasonal variation in case loads",
+        title: "Manual Lead Management",
+        description: "Lost opportunities due to poor lead scoring and inconsistent follow-up processes.",
+        stat: "60% of leads never get proper follow-up",
         icon: (
           <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -41,31 +41,31 @@ const PainPointsSolutions = () => {
         )
       },
       solution: {
-        title: "Smart Load Balancing",
-        description: "AI predicts patterns and optimizes staff scheduling automatically.",
-        stat: "35% improvement in staff utilization",
+        title: "AI Lead Intelligence",
+        description: "Automated scoring, intelligent assignment, and predictive conversion analytics.",
+        stat: "3x higher conversion rates",
         icon: (
           <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
           </svg>
         )
       }
     },
     {
       problem: {
-        title: "Resource Juggling Chaos",
-        description: "Tracking availability of hearses, chapels, and staff manually.",
-        stat: "15+ hours weekly spent on coordination",
+        title: "Reactive Customer Management",
+        description: "No visibility into customer health or churn risk until it's too late.",
+        stat: "85% of churn happens without warning",
         icon: (
           <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
           </svg>
         )
       },
       solution: {
-        title: "Automated Resource Management",
-        description: "Everything tracked and allocated in real-time, automatically.",
-        stat: "73% reduction in scheduling time",
+        title: "Predictive Customer Success",
+        description: "Real-time health monitoring, churn prediction, and automated intervention strategies.",
+        stat: "85% churn prevention success",
         icon: (
           <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -75,22 +75,22 @@ const PainPointsSolutions = () => {
     },
     {
       problem: {
-        title: "Paper-Based Confusion",
-        description: "Lost schedules, illegible notes, and outdated information.",
-        stat: "60% more errors with manual systems",
+        title: "Inefficient Resource Allocation",
+        description: "Wrong people on wrong projects, missed opportunities, suboptimal scheduling.",
+        stat: "40% productivity loss from poor matching",
         icon: (
           <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.364-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
         )
       },
       solution: {
-        title: "Digital Intelligence",
-        description: "Cloud-based system accessible anywhere with automatic backups.",
-        stat: "99.9% system reliability",
+        title: "Smart Employee Optimization",
+        description: "AI-driven skills matching, performance tracking, and optimal assignment recommendations.",
+        stat: "40% productivity improvement",
         icon: (
           <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         )
       }
@@ -117,7 +117,7 @@ const PainPointsSolutions = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            See how our AI transforms your biggest scheduling challenges into automated solutions
+            See how our AI transforms your biggest business management challenges into intelligent automation
           </motion.p>
         </div>
 
@@ -214,8 +214,8 @@ const PainPointsSolutions = () => {
               The Bottom Line
             </h3>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Stop fighting with schedules. Let our AI handle the complexity while you focus on 
-              providing compassionate care to families. It's that simple.
+              Stop juggling multiple systems and manual processes. Let our AI handle the operational complexity 
+              while you focus on growing your business and serving your customers. It's that simple.
             </p>
           </div>
         </motion.div>

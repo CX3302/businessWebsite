@@ -5,121 +5,6 @@ import { motion } from 'framer-motion';
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
-      {/* Animated Background Fade Effect */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Moving gradient orbs */}
-        <motion.div
-          className="absolute w-96 h-96 rounded-full opacity-20 blur-3xl"
-          style={{
-            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(156, 163, 175, 0.2) 50%, transparent 70%)',
-            left: '10%', 
-            top: '20%'
-          }}
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        
-        <motion.div
-          className="absolute w-80 h-80 rounded-full opacity-15 blur-3xl"
-          style={{
-            background: 'radial-gradient(circle, rgba(75, 85, 99, 0.4) 0%, rgba(59, 130, 246, 0.2) 50%, transparent 70%)',
-            right: '15%', 
-            top: '30%'
-          }}
-          animate={{
-            x: [0, -80, 0],
-            y: [0, 80, 0],
-            scale: [1, 0.8, 1],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 5
-          }}
-        />
-        
-        <motion.div
-          className="absolute w-72 h-72 rounded-full opacity-10 blur-2xl"
-          style={{
-            background: 'radial-gradient(circle, rgba(37, 99, 235, 0.3) 0%, rgba(107, 114, 128, 0.2) 50%, transparent 70%)',
-            left: '60%', 
-            bottom: '25%'
-          }}
-          animate={{
-            x: [0, 60, 0],
-            y: [0, -40, 0],
-            scale: [1, 1.3, 1],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 10
-          }}
-        />
-        
-        <motion.div
-          className="absolute w-64 h-64 rounded-full opacity-8 blur-2xl"
-          style={{
-            background: 'radial-gradient(circle, rgba(30, 58, 138, 0.3) 0%, rgba(156, 163, 175, 0.1) 50%, transparent 70%)',
-            left: '20%', 
-            bottom: '20%'
-          }}
-          animate={{
-            x: [0, -40, 0],
-            y: [0, 60, 0],
-            scale: [1, 0.9, 1],
-          }}
-          transition={{
-            duration: 22,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 3
-          }}
-        />
-        
-        {/* Floating particles */}
-        {Array.from({ length: 12 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-20"
-            animate={{
-              y: [0, -100, 0],
-              x: [0, Math.random() * 50 - 25, 0],
-              opacity: [0.2, 0.6, 0.2],
-            }}
-            transition={{
-              duration: 8 + Math.random() * 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: Math.random() * 8
-            }}
-            style={{
-              left: `${10 + Math.random() * 80}%`,
-              top: `${20 + Math.random() * 60}%`
-            }}
-          />
-        ))}
-        
-        {/* Mesh gradient overlay */}
-        <div className="absolute inset-0 opacity-30" style={{
-          background: `
-            radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(75, 85, 99, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(37, 99, 235, 0.05) 0%, transparent 50%)
-          `
-        }} />
-      </div>
-
       {/* Simplified background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0" style={{
@@ -158,7 +43,7 @@ const Hero = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
             </span>
-            <span className="relative z-10">New: AI-powered scheduling that runs itself</span>
+            <span className="relative z-10">New: Complete AI business management suite</span>
           </motion.div>
 
           {/* Main Headline */}
@@ -168,10 +53,10 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Every Funeral,
+            Every Business,
             <br />
             <span className="bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent">
-              Perfectly Scheduled
+              Perfectly Optimized
             </span>
           </motion.h1>
 
@@ -182,9 +67,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Prelude's AI keeps chapels, staff, and families in sync, 
+            Prelude's AI unifies scheduling, leads, CRM, and team optimization, 
             <br className="hidden sm:block" />
-            cutting coordination time by 73%.
+            reducing operational overhead by 73%.
           </motion.p>
 
           {/* CTA Buttons */}

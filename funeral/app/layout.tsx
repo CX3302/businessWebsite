@@ -16,16 +16,16 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://prelude.ai'),
-  title: 'Prelude - AI-Powered Funeral Home Scheduling System',
-  description: 'Eliminate double-bookings and scheduling chaos with Prelude\'s intelligent funeral home management system. Reduce coordination time by 73% with automated scheduling, resource management, and conflict prevention.',
-  keywords: ['funeral home scheduling', 'AI scheduling', 'funeral management', 'double booking prevention', 'automated scheduling', 'funeral home software'],
+  title: 'Prelude - AI-Powered Business Management Platform',
+  description: 'Transform your business with AI-driven scheduling, lead management, CRM, and employee optimization. Reduce operational overhead by 73% with intelligent automation and predictive analytics.',
+  keywords: ['AI business management', 'intelligent scheduling', 'lead generation', 'CRM automation', 'employee optimization', 'predictive analytics', 'business intelligence'],
   authors: [{ name: 'Prelude Team' }],
   creator: 'Prelude',
   publisher: 'Prelude',
   robots: 'index, follow',
   openGraph: {
-    title: 'Prelude - AI-Powered Funeral Home Scheduling',
-    description: 'Never double-book again. Eliminate scheduling conflicts and reduce coordination time by 73% with Prelude\'s intelligent scheduling system.',
+    title: 'Prelude - AI-Powered Business Management Platform',
+    description: 'Unify scheduling, leads, CRM, and team optimization in one intelligent platform. Boost efficiency by 73% with AI-driven automation.',
     url: 'https://prelude.ai',
     siteName: 'Prelude',
     images: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Prelude - AI-Powered Funeral Home Scheduling',
+        alt: 'Prelude - AI-Powered Business Management Platform',
       },
     ],
     locale: 'en_US',
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Prelude - AI-Powered Funeral Home Scheduling',
-    description: 'Never double-book again. Eliminate scheduling conflicts and reduce coordination time by 73%.',
+    title: 'Prelude - AI-Powered Business Management Platform',
+    description: 'Unify scheduling, leads, CRM, and team optimization in one intelligent platform. Boost efficiency by 73%.',
     images: ['/og-image.jpg'],
   },
 }
