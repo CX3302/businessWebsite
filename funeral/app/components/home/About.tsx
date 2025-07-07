@@ -41,12 +41,12 @@ const About = () => {
             </div>
 
             <div className="mt-10 grid sm:grid-cols-2 gap-6">
-              <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border border-blue-100">
-                <div className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2 font-manrope">73%</div>
+              <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border border-blue-100 shadow-sm">
+                <div className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2 font-manrope">73%</div>
                 <div className="text-gray-600 font-inter">Operational Efficiency<br />Improvement</div>
               </div>
-              <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border border-blue-100">
-                <div className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2 font-manrope">5-in-1</div>
+              <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border border-blue-100 shadow-sm">
+                <div className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2 font-manrope">5-in-1</div>
                 <div className="text-gray-600 font-inter">Unified Platform<br />Solution</div>
               </div>
             </div>
@@ -108,8 +108,8 @@ const About = () => {
             {/* Floating Stats Cards */}
             <motion.div
               className="absolute -top-6 -right-6 bg-white rounded-xl p-4 shadow-lg border border-blue-100 w-20 h-20"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
               <div className="text-center h-full flex flex-col justify-center">
                 <div className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent font-manrope">73%</div>
@@ -119,8 +119,8 @@ const About = () => {
 
             <motion.div
               className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-lg border border-blue-100 w-20 h-20"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              animate={{ y: [0, 5, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             >
               <div className="text-center h-full flex flex-col justify-center">
                 <div className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent font-manrope">24/7</div>

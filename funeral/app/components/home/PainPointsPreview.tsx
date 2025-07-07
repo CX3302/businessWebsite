@@ -42,7 +42,7 @@ const PainPointsPreview = () => {
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Pain Points Card */}
           <motion.div
             className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 relative overflow-hidden"
@@ -52,7 +52,7 @@ const PainPointsPreview = () => {
             viewport={{ once: true }}
           >
             {/* Accent Line */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 to-orange-500"></div>
+            <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-red-500 to-orange-500"></div>
             
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mr-4">
@@ -97,7 +97,7 @@ const PainPointsPreview = () => {
             viewport={{ once: true }}
           >
             {/* Accent Line */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-500"></div>
+            <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-400 to-blue-500"></div>
             
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 bg-blue-800 rounded-xl flex items-center justify-center mr-4">

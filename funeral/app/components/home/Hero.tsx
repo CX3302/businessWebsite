@@ -31,7 +31,7 @@ const Hero = () => {
               className="absolute inset-0 bg-blue-400 rounded-full"
               animate={{
                 scale: [1, 1.05, 1],
-                opacity: [0.3, 0.1, 0.3],
+                opacity: [0.2, 0.05, 0.2],
               }}
               transition={{
                 duration: 2,
@@ -145,8 +145,8 @@ const Hero = () => {
         <div className="flex flex-col items-center">
           <span className="text-sm text-gray-500 mb-2 font-inter">Scroll to explore</span>
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            animate={{ y: [0, 5, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
             className="w-6 h-10 border-2 border-blue-900 rounded-full flex justify-center"
           >
             <div className="w-1 h-3 bg-blue-900 rounded-full mt-2"></div>
