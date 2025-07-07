@@ -119,7 +119,7 @@ const CaseStudy = () => {
           viewport={{ once: true }}
         >
           <p className="text-xs text-gray-500">
-            Based on 2025 modeling
+            Based on 2025 pilots
           </p>
         </motion.div>
       </div>

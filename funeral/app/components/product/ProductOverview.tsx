@@ -145,7 +145,7 @@ const ProductOverview = () => {
               whileTap={{ scale: 0.95 }}
               onClick={() => window.location.href = '/contact'}
             >
-              Get Started Today
+              Book a Demo
             </motion.button>
           </motion.div>
 
@@ -186,7 +186,7 @@ const ProductOverview = () => {
             transition={{ duration: 0.8, delay: 1.0 }}
           >
                          <p className="text-xs text-gray-500 text-center">
-               Based on 2025 modeling
+               Based on 2025 pilots
              </p>
           </motion.div>
         </div>

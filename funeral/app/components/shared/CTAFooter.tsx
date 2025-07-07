@@ -27,7 +27,7 @@ const CTAFooter = () => {
                 onClick={() => window.location.href = '/contact'}
                 className="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-900 text-lg font-semibold rounded-lg hover:bg-blue-50 transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
               >
-                Get Started
+                Book a Demo
                 <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
@@ -73,7 +73,7 @@ const CTAFooter = () => {
                   </svg>
                 </div>
                 <h3 className="font-semibold mb-2 text-white">Email Us</h3>
-                <p className="text-gray-300">hello@prelude.ai</p>
+                <p className="text-gray-300">info@preludeos.com</p>
               </motion.div>
               
               <motion.div 

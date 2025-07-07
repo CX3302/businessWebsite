@@ -52,7 +52,7 @@ const CTASection = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              Get Started Today
+              Book a Demo
             </motion.h2>
             <motion.p
               className="text-lg text-gray-300"
@@ -181,7 +181,7 @@ const CTASection = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              Get Started Today
+              Book a Demo
             </motion.h2>
             <motion.p 
               className="text-xl"

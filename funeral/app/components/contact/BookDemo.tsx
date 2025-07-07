@@ -7,7 +7,7 @@ const BookDemo = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    funeralHome: '',
+    company: '',
     phone: '',
     message: ''
   });
@@ -51,7 +51,7 @@ const BookDemo = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            See how Prelude can eliminate double-bookings and transform your funeral home operations
+            See how Prelude can eliminate double-bookings and transform your business operations
           </motion.p>
         </div>
 
@@ -93,7 +93,7 @@ const BookDemo = () => {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200"
-                      placeholder="john@funeralhome.com"
+                      placeholder="john@company.com"
                     />
                   </div>
                 </div>
@@ -101,16 +101,16 @@ const BookDemo = () => {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Funeral Home Name *
+                      Company Name *
                     </label>
                     <input
                       type="text"
-                      name="funeralHome"
-                      value={formData.funeralHome}
+                      name="company"
+                      value={formData.company}
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200"
-                      placeholder="Smith Funeral Home"
+                      placeholder="Your Company Name"
                     />
                   </div>
                   <div>
@@ -165,7 +165,7 @@ const BookDemo = () => {
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>• 30-minute personalized demonstration</li>
                     <li>• Q&A session tailored to your needs</li>
-                    <li>• Custom ROI calculation for your funeral home</li>
+                    <li>• Custom ROI calculation for your business</li>
                     <li>• Implementation timeline discussion</li>
                   </ul>
                 </div>
@@ -223,7 +223,7 @@ const BookDemo = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Email Us</h4>
-                    <p className="text-gray-600">hello@prelude.ai</p>
+                    <p className="text-gray-600">info@preludeos.com</p>
                     <p className="text-sm text-gray-500">Response within 24 hours</p>
                   </div>
                 </div>

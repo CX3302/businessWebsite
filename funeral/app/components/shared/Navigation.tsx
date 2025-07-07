@@ -173,7 +173,7 @@ const Navigation = () => {
               href="/contact"
               className="bg-gray-900 text-white px-6 py-2 rounded-md hover:bg-gray-800 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-manrope"
             >
-              Get Started
+              Book a Demo
             </Link>
           </div>
 

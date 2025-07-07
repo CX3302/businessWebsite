@@ -60,7 +60,7 @@ const About = () => {
               viewport={{ once: true }}
             >
               <p className="text-xs text-gray-500 font-inter text-center">
-                Based on 2025 modeling
+                Based on 2025 pilots
               </p>
             </motion.div>
           </motion.div>

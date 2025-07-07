@@ -129,7 +129,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1.0 }}
           >
             <p className="text-xs text-gray-500 font-inter">
-              Based on 2025 modeling
+              Based on 2025 pilots
             </p>
           </motion.div>
         </motion.div>
