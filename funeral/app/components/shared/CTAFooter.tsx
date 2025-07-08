@@ -38,7 +38,7 @@ const CTAFooter = () => {
                 Book a Demo
               </Button>
               <Button
-                variant="outline"
+                variant="glow"
                 size="lg"
                 onClick={() => window.location.href = '/product'}
                 className="bg-transparent text-white border-white hover:bg-white hover:text-gray-900 focus:ring-white"

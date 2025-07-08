@@ -86,7 +86,7 @@ const Button: React.FC<ButtonProps> = ({
   
   const variantStyles = {
     shimmer: 'bg-gradient-to-r from-gray-900 to-blue-900 text-white shadow-lg hover:shadow-2xl focus:ring-blue-500 hover:scale-105',
-    magnetic: 'bg-white text-gray-900 border-2 border-gray-900 hover:bg-gray-900 hover:text-white shadow-sm hover:shadow-xl focus:ring-gray-500',
+    magnetic: 'bg-white text-gray-900 border-2 border-gray-900 hover:bg-gray-900 hover:text-white shadow-sm hover:shadow-xl focus:ring-gray-500 hover:scale-105',
     glow: 'bg-gradient-to-r from-gray-900 to-blue-900 text-white shadow-lg focus:ring-blue-500',
     depth: 'bg-white text-gray-900 border-2 border-gray-900 shadow-sm focus:ring-gray-500'
   };
@@ -163,6 +163,8 @@ const Button: React.FC<ButtonProps> = ({
         style={{
           transform: `translate(${magneticPosition.x}px, ${magneticPosition.y}px)`,
         }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
         aria-label={ariaLabel}
       >
         <span className="relative z-10 flex items-center gap-2">
