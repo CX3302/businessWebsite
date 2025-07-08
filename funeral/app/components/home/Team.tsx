@@ -25,7 +25,7 @@ const Team = () => {
     {
       name: "James Tan",
       role: "Chief Technology Officer", 
-      description: "Computer Engineering atUniversity of Toronto, specializes in product development and artificial intelligence. Built agentic systems used by companies with 100 million ARR.",
+      description: "Computer Engineering at University of Toronto, specializes in product development. Built agentic systems used by companies with 100 million ARR.",
       image: "jamestan.jpg",
       school: "uoft.jpg",
       company: "instalily.jpg"
@@ -65,7 +65,7 @@ const Team = () => {
     {
       name: "Mark Li",
       role: "AI Researcher",
-      description: "Engineering Science atUofT, currently at Huawei building AI systems. Integrated multi-modal LLMs with robotic systems for planning and control.",
+      description: "Engineering Science at University of Toronto, currently at Huawei building AI systems. Integrated multi-modal LLMs with robotic systems for planning and control.",
       image: "markli.jpg",
       school: "uoft.jpg",
       company: "huawei.png"
