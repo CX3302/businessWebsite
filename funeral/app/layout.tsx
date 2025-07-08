@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Manrope } from 'next/font/google'
 import './globals.css'
+import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -72,6 +73,7 @@ export default function RootLayout({
         <div id="root">
           {children}
         </div>
+        <Toaster />
       </body>
     </html>
   )

@@ -2,20 +2,26 @@
 
 import { motion } from 'framer-motion';
 import { ButtonHTMLAttributes, ReactNode, useRef, useState } from 'react';
+import { Button as ShadcnButton } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'shimmer' | 'magnetic' | 'glow' | 'depth';
-  size?: 'sm' | 'md' | 'lg';
+interface ButtonProps {
+  variant?: 'default' | 'outline' | 'ghost' | 'destructive' | 'shimmer' | 'magnetic' | 'glow' | 'depth';
+  size?: 'default' | 'sm' | 'lg' | 'icon';
   children: ReactNode;
   className?: string;
   icon?: ReactNode;
   iconPosition?: 'left' | 'right';
   isLoading?: boolean;
+  disabled?: boolean;
+  onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
+  'aria-label'?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
-  variant = 'primary',
-  size = 'md',
+  variant = 'default',
+  size = 'default',
   children,
   className = '',
   icon,
@@ -24,11 +30,12 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   onClick,
   type = 'button',
-  ...props
+  'aria-label': ariaLabel,
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [magneticPosition, setMagneticPosition] = useState({ x: 0, y: 0 });
   
+  // Handle magnetic effect
   const handleMouseMove = (e: React.MouseEvent) => {
     if (variant === 'magnetic' && buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
@@ -44,12 +51,40 @@ const Button: React.FC<ButtonProps> = ({
     }
   };
 
+  // Standard Shadcn/UI Button variants
+  if (['default', 'outline', 'ghost', 'destructive'].includes(variant)) {
+    return (
+      <ShadcnButton
+        variant={variant as 'default' | 'outline' | 'ghost' | 'destructive'}
+        size={size}
+        className={cn(
+          "transition-all duration-200 font-manrope",
+          "focus:ring-2 focus:ring-offset-2",
+          variant === 'default' && "bg-gradient-to-r from-gray-900 to-blue-900 hover:from-blue-900 hover:to-gray-900",
+          className
+        )}
+        disabled={disabled || isLoading}
+        onClick={onClick}
+        type={type}
+        aria-label={ariaLabel}
+      >
+        {isLoading && (
+          <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-current" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        )}
+        {icon && iconPosition === 'left' && <span className="mr-2">{icon}</span>}
+        {children}
+        {icon && iconPosition === 'right' && <span className="ml-2">{icon}</span>}
+      </ShadcnButton>
+    );
+  }
+
+  // Advanced effect variants
   const baseStyles = 'relative inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed font-manrope overflow-hidden';
   
   const variantStyles = {
-    primary: 'bg-gradient-to-r from-gray-900 to-blue-900 text-white hover:from-blue-900 hover:to-gray-900 shadow-lg hover:shadow-xl focus:ring-gray-500 hover:scale-105',
-    secondary: 'bg-white text-gray-900 border-2 border-gray-900 hover:bg-gray-900 hover:text-white shadow-sm hover:shadow-md focus:ring-gray-500',
-    tertiary: 'bg-transparent text-gray-900 hover:text-blue-900 underline underline-offset-4 hover:underline-offset-2 focus:ring-gray-500',
     shimmer: 'bg-gradient-to-r from-gray-900 to-blue-900 text-white shadow-lg hover:shadow-2xl focus:ring-blue-500 hover:scale-105',
     magnetic: 'bg-white text-gray-900 border-2 border-gray-900 hover:bg-gray-900 hover:text-white shadow-sm hover:shadow-xl focus:ring-gray-500',
     glow: 'bg-gradient-to-r from-gray-900 to-blue-900 text-white shadow-lg focus:ring-blue-500',
@@ -57,12 +92,13 @@ const Button: React.FC<ButtonProps> = ({
   };
   
   const sizeStyles = {
+    default: 'px-6 py-3 text-base',
     sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg'
+    lg: 'px-8 py-4 text-lg',
+    icon: 'p-2'
   };
   
-  const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+  const combinedClassName = `${baseStyles} ${variantStyles[variant as keyof typeof variantStyles]} ${sizeStyles[size]} ${className}`;
   
   // Shimmer Button Content
   if (variant === 'shimmer') {
@@ -75,6 +111,7 @@ const Button: React.FC<ButtonProps> = ({
         type={type}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
+        aria-label={ariaLabel}
       >
         {/* Shimmer glow effect */}
         <div className="absolute inset-0 -top-[2px] -left-[2px] -right-[2px] -bottom-[2px] rounded-lg bg-gradient-to-r from-blue-500 via-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 blur transition-opacity duration-500" />
@@ -126,6 +163,7 @@ const Button: React.FC<ButtonProps> = ({
         style={{
           transform: `translate(${magneticPosition.x}px, ${magneticPosition.y}px)`,
         }}
+        aria-label={ariaLabel}
       >
         <span className="relative z-10 flex items-center gap-2">
           {isLoading && (
@@ -157,6 +195,7 @@ const Button: React.FC<ButtonProps> = ({
         type={type}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
+        aria-label={ariaLabel}
       >
         {/* Glow effect */}
         <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -178,35 +217,33 @@ const Button: React.FC<ButtonProps> = ({
     );
   }
   
-  // Default Button (primary, secondary, tertiary)
-  return (
-    <motion.button
-      ref={buttonRef}
-      className={combinedClassName}
-      disabled={disabled || isLoading}
-      onClick={onClick}
-      type={type}
-      whileHover={{ scale: variant === 'tertiary' ? 1 : 1.02 }}
-      whileTap={{ scale: variant === 'tertiary' ? 1 : 0.98 }}
-    >
-      {isLoading && (
-        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-current" fill="none" viewBox="0 0 24 24">
-          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
-      )}
-      
-      {icon && iconPosition === 'left' && (
-        <span className="mr-2">{icon}</span>
-      )}
-      
-      {children}
-      
-      {icon && iconPosition === 'right' && (
-        <span className="ml-2">{icon}</span>
-      )}
-    </motion.button>
-  );
+  // Depth Button Content
+  if (variant === 'depth') {
+    return (
+      <motion.button
+        ref={buttonRef}
+        className={`group ${combinedClassName} hover:shadow-lg hover:shadow-gray-400/50 active:shadow-sm active:translate-y-1`}
+        disabled={disabled || isLoading}
+        onClick={onClick}
+        type={type}
+        whileHover={{ y: -2 }}
+        whileTap={{ y: 0 }}
+        aria-label={ariaLabel}
+      >
+        {isLoading && (
+          <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-current" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        )}
+        {icon && iconPosition === 'left' && <span className="mr-2">{icon}</span>}
+        {children}
+        {icon && iconPosition === 'right' && <span className="ml-2">{icon}</span>}
+      </motion.button>
+    );
+  }
+
+  return null;
 };
 
 export default Button; 

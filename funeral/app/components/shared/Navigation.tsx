@@ -3,14 +3,21 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from '@/components/ui/navigation-menu';
+import { cn } from '@/lib/utils';
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [showProductDropdown, setShowProductDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,12 +26,6 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    return () => {
-      if (dropdownTimeout) clearTimeout(dropdownTimeout);
-    };
-  }, [dropdownTimeout]);
 
   const currentProduct = {
     name: "Business Management Suite",
@@ -45,24 +46,15 @@ const Navigation = () => {
     }
   ];
 
-  const handleMouseEnter = () => {
-    if (dropdownTimeout) clearTimeout(dropdownTimeout);
-    setShowProductDropdown(true);
-  };
-
-  const handleMouseLeave = () => {
-    const timeout = setTimeout(() => setShowProductDropdown(false), 150);
-    setDropdownTimeout(timeout);
-  };
-
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+    <nav className={cn(
+      "fixed w-full z-50 transition-all duration-300",
       scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-transparent'
-    }`} role="navigation" aria-label="Main navigation">
+    )} role="navigation" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -82,116 +74,98 @@ const Navigation = () => {
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link 
-              href="/"
-              className="text-gray-700 hover:text-gray-900 transition-colors font-medium px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-inter"
-            >
-              Home
-            </Link>
-            
-            {/* Product Dropdown Container - handles hover for both button and dropdown */}
-            <div 
-              className="relative" 
-              ref={dropdownRef}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              {/* Products Button */}
-              <div className="flex items-center text-gray-700 hover:text-gray-900 transition-colors font-medium cursor-pointer px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-inter">
-                Products
-                <svg 
-                  className={`ml-1 h-4 w-4 transition-transform duration-200 ${showProductDropdown ? 'rotate-180' : ''}`}
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-
-              {/* Dropdown Menu - positioned to connect seamlessly with button */}
-              <div className={`absolute top-full left-0 w-80 bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden transition-all duration-200 transform ${
-                showProductDropdown
-                  ? 'opacity-100 translate-y-0 scale-100' 
-                  : 'opacity-0 translate-y-1 scale-95 pointer-events-none'
-              }`} role="menu" aria-labelledby="products-menu">
-                {/* Invisible bridge to ensure no gap */}
-                <div className="absolute -top-1 left-0 right-0 h-1 bg-transparent"></div>
-                
-                {/* Current Product */}
-                <div className="p-3">
-                  <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide px-3 py-2 font-inter">
-                    Available Now
-                  </div>
-                  <Link 
-                    href={currentProduct.href}
-                    className="block p-3 rounded-md hover:bg-gray-900 hover:text-white transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-                    role="menuitem"
-                  >
-                    <div className="font-semibold text-gray-900 group-hover:text-white font-manrope">
-                      {currentProduct.name}
-                    </div>
-                    <div className="text-sm text-gray-600 group-hover:text-gray-300 font-inter">
-                      {currentProduct.description}
-                    </div>
+          <div className="hidden md:flex items-center space-x-2">
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <Link href="/" legacyBehavior passHref>
+                    <NavigationMenuLink className={cn(
+                      "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 font-inter"
+                    )}>
+                      Home
+                    </NavigationMenuLink>
                   </Link>
-                </div>
-
-                {/* Divider */}
-                <div className="border-t border-gray-100"></div>
-
-                {/* Future Products */}
-                <div className="p-3">
-                  <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide px-3 py-2 font-inter">
-                    Coming Soon
-                  </div>
-                  {futureProducts.map((product, index) => (
-                    <Link
-                      key={index}
-                      href={product.href}
-                      className="block p-3 rounded-md hover:bg-gray-50 transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-                      role="menuitem"
-                    >
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="font-semibold text-gray-900 group-hover:text-gray-700 font-manrope">
-                            {product.name}
-                          </div>
-                          <div className="text-sm text-gray-600 font-inter">
-                            {product.description}
-                          </div>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="font-inter">Products</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="w-80 p-4">
+                      {/* Current Product */}
+                      <div className="mb-4">
+                        <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 font-inter">
+                          Available Now
                         </div>
-                        <div className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full font-medium font-inter">
-                          Soon
-                        </div>
+                        <Link
+                          href={currentProduct.href}
+                          className="block p-3 rounded-md hover:bg-gray-900 hover:text-white transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                        >
+                          <div className="font-semibold text-gray-900 group-hover:text-white font-manrope">
+                            {currentProduct.name}
+                          </div>
+                          <div className="text-sm text-gray-600 group-hover:text-gray-300 font-inter">
+                            {currentProduct.description}
+                          </div>
+                        </Link>
                       </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
+
+                      {/* Divider */}
+                      <div className="border-t border-gray-100 mb-4"></div>
+
+                      {/* Future Products */}
+                      <div>
+                        <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 font-inter">
+                          Coming Soon
+                        </div>
+                        {futureProducts.map((product, index) => (
+                          <Link
+                            key={index}
+                            href={product.href}
+                            className="block p-3 rounded-md hover:bg-gray-50 transition-all duration-200 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                          >
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <div className="font-semibold text-gray-900 group-hover:text-gray-700 font-manrope">
+                                  {product.name}
+                                </div>
+                                <div className="text-sm text-gray-600 font-inter">
+                                  {product.description}
+                                </div>
+                              </div>
+                              <div className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full font-medium font-inter">
+                                Soon
+                              </div>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <Link href="/roadmap" legacyBehavior passHref>
+                    <NavigationMenuLink className={cn(
+                      "group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 font-inter"
+                    )}>
+                      Roadmap
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
             
-            <Link 
-              href="/roadmap"
-              className="text-gray-700 hover:text-gray-900 transition-colors font-medium px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-inter"
-            >
-              Roadmap
-            </Link>
-            <Link 
-              href="/contact"
-              className="bg-gray-900 text-white px-6 py-2 rounded-md hover:bg-gray-800 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-manrope"
-            >
-              Book a Demo
-            </Link>
+            <Button asChild className="bg-gray-900 text-white hover:bg-gray-800 font-manrope ml-4">
+              <Link href="/contact">Book a Demo</Link>
+            </Button>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button
+            <Button
+              variant="ghost"
+              size="icon"
               onClick={toggleMobileMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle main menu"
             >
@@ -213,7 +187,7 @@ const Navigation = () => {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
-            </button>
+            </Button>
           </div>
         </div>
 
@@ -300,13 +274,11 @@ const Navigation = () => {
             >
               Roadmap
             </Link>
-            <Link
-              href="/contact"
-              className="block px-3 py-2 rounded-md bg-gray-900 text-white hover:bg-gray-800 font-medium text-center font-manrope"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Book Demo
-            </Link>
+            <Button asChild className="w-full mt-2 bg-gray-900 text-white hover:bg-gray-800 font-manrope">
+              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                Book Demo
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

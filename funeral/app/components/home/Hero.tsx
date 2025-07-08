@@ -96,13 +96,10 @@ const Hero = () => {
             <Button 
               variant="magnetic"
               size="lg"
-              onClick={() => {
-                const element = document.getElementById('pain-points');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
-              aria-label="Scroll to see how Prelude works"
+              onClick={() => window.location.href = '/product'}
+              aria-label="Learn more about Prelude's products"
             >
-              See How It Works
+              Learn More
             </Button>
           </motion.div>
 
