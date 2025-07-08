@@ -37,7 +37,7 @@ const ButtonShowcase = () => {
           </Button>
           
           <Button
-            variant="primary"
+            variant="default"
             size="lg"
             onClick={() => handleClick('primary')}
           >
@@ -59,7 +59,7 @@ const ButtonShowcase = () => {
           </Button>
           
           <Button
-            variant="secondary"
+            variant="outline"
             size="lg"
             onClick={() => handleClick('secondary')}
           >
@@ -74,15 +74,15 @@ const ButtonShowcase = () => {
         <div className="flex flex-wrap gap-4">
           <Button
             variant="depth"
-            size="md"
+            size="default"
             onClick={() => handleClick('depth')}
           >
             Depth Effect
           </Button>
           
           <Button
-            variant="tertiary"
-            size="md"
+            variant="ghost"
+            size="default"
             onClick={() => handleClick('tertiary')}
           >
             Text Link
@@ -97,7 +97,7 @@ const ButtonShowcase = () => {
           <Button variant="shimmer" size="sm" onClick={() => handleClick('small')}>
             Small
           </Button>
-          <Button variant="shimmer" size="md" onClick={() => handleClick('medium')}>
+          <Button variant="shimmer" size="default" onClick={() => handleClick('medium')}>
             Medium
           </Button>
           <Button variant="shimmer" size="lg" onClick={() => handleClick('large')}>
@@ -110,10 +110,10 @@ const ButtonShowcase = () => {
       <div className="space-y-4">
         <h3 className="text-lg font-semibold text-gray-800">Loading States</h3>
         <div className="flex flex-wrap gap-4">
-          <Button variant="shimmer" size="md" isLoading onClick={() => handleClick('loading')}>
+          <Button variant="shimmer" size="default" isLoading onClick={() => handleClick('loading')}>
             Processing...
           </Button>
-          <Button variant="magnetic" size="md" isLoading onClick={() => handleClick('loading')}>
+          <Button variant="magnetic" size="default" isLoading onClick={() => handleClick('loading')}>
             Submitting...
           </Button>
         </div>
@@ -126,10 +126,10 @@ const ButtonShowcase = () => {
           <p><strong>Shimmer:</strong> Hero section primary CTAs - draws maximum attention</p>
           <p><strong>Glow:</strong> Footer CTAs and final conversion points</p>
           <p><strong>Magnetic:</strong> Secondary actions that need engagement</p>
-          <p><strong>Primary:</strong> Standard important actions</p>
-          <p><strong>Secondary:</strong> Supporting actions and alternatives</p>
+          <p><strong>Default:</strong> Standard important actions</p>
+          <p><strong>Outline:</strong> Supporting actions and alternatives</p>
           <p><strong>Depth:</strong> Feature cards and interactive elements</p>
-          <p><strong>Tertiary:</strong> Low-priority text links</p>
+          <p><strong>Ghost:</strong> Low-priority text links</p>
         </div>
       </div>
     </div>
