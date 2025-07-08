@@ -43,6 +43,7 @@ const Team = () => {
       role: "AI Engineer",
       description: "2 years at Huawei building production-grade AI systems. Strong in data modeling with 10K+ datasets processed.",
       image: "dingaoxue.jpg",
+      school: "expedia.jpg",
       company: "huawei.png"
     },
     {
@@ -50,14 +51,16 @@ const Team = () => {
       role: "Software Engineer",
       description: "Engineered YOLO and OCR-based automation tools. M.S. in Computational Data Science at CMU.",
       image: "wubolin.jpg",
-      school: "cmu.png"
+      school: "cmu.png",
+      company: "vertex.jpy"
     },
     {
       name: "Bohan Wu",
       role: "Backend Engineer",
       description: "Built scalable backend systems and AI toolchains. M.S. in Electrical & Computer Engineering at CMU.",
       image: "wubohan.jpg",
-      school: "cmu.png"
+      school: "umich.jpg",
+      company: "cmu.png"
     },
     {
       name: "Mark Li",
