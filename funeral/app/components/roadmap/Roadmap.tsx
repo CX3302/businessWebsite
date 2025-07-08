@@ -10,16 +10,16 @@ const Roadmap = () => {
     {
       quarter: "Available Now",
       title: "Business Management Suite",
-      description: "Complete AI-powered business management platform with intelligent automation and predictive analytics",
+      description: "Complete AI-powered business management platform with intelligent automation and Sales Data Analytics",
       status: "Live",
       href: "/product",
       features: [
-        "AI Scheduling Intelligence - Conversational AI with predictive analytics for optimal meeting times and success rates",
+        "AI Scheduling Intelligence - Conversational AI with Sales Data Analytics for optimal meeting times and success rates",
         "Lead Generation & Scoring - Comprehensive lead database with AI-powered qualification and intelligent assignment",
         "Customer Success Management - Health score monitoring, churn prediction, and renewal forecasting",
         "Employee Optimization - Skills-based matching and event-specific recommendations for maximum performance",
         "Vendor Management - Complete vendor database with integration capabilities and relationship tracking",
-        "Predictive Analytics - Real-time business intelligence with forecasting and automated workflows"
+        "Sales Data Analytics - Real-time business intelligence with forecasting and automated workflows"
       ]
     },
     {

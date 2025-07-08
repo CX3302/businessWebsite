@@ -14,7 +14,7 @@ const PainPointsPreview = () => {
     "Unified platform connects all operations",
     "AI automation reduces overhead by 73%",
     "Intelligent lead scoring maximizes conversions", 
-    "Predictive analytics drive strategic decisions"
+    "Sales Data Analytics drive strategic decisions"
   ];
 
   return (

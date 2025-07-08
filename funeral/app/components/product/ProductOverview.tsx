@@ -6,7 +6,7 @@ const ProductOverview = () => {
   const keyFeatures = [
     {
       title: "AI Scheduling Intelligence",
-      description: "Conversational AI with predictive analytics for optimal meeting times and success rates"
+      description: "Conversational AI with Sales Data Analytics for optimal meeting times and success rates"
     },
     {
       title: "Lead Generation & Scoring",
@@ -17,16 +17,16 @@ const ProductOverview = () => {
       description: "Health score monitoring, churn prediction, and renewal forecasting"
     },
     {
+      title: "Sales Data Analytics",
+      description: "Real-time business intelligence with forecasting and automated workflows"
+    },
+    {
       title: "Employee Optimization",
       description: "Skills-based matching and event-specific recommendations for maximum performance"
     },
     {
       title: "Vendor Management",
       description: "Complete vendor database with integration capabilities and relationship tracking"
-    },
-    {
-      title: "Predictive Analytics",
-      description: "Real-time business intelligence with forecasting and automated workflows"
     }
   ];
 
@@ -41,7 +41,7 @@ const ProductOverview = () => {
       )
     },
     { 
-      number: "5-in-1", 
+      number: "6-in-1", 
       label: "Unified platform", 
       icon: (
         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,7 +101,7 @@ const ProductOverview = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
           >
             Unify your entire business lifecycle with AI-powered intelligence. From lead generation to customer success, 
-            our platform integrates scheduling, CRM, employee optimization, and predictive analytics — delivering 73% efficiency improvement automatically.
+            our platform integrates scheduling, CRM, data analysis, and employee optimization — delivering 73% efficiency improvement automatically.
           </motion.p>
         </div>
 
@@ -202,7 +202,7 @@ const ProductOverview = () => {
             Complete Business Intelligence Platform
           </h3>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
-            Unified scheduling intelligence, predictive lead management, customer success analytics, employee optimization, 
+            Unified scheduling intelligence, predictive lead management, customer success analytics, employee optimization, sales data analytics,
             and vendor coordination — all powered by conversational AI and real-time predictive insights for strategic decision-making.
           </p>
         </motion.div>

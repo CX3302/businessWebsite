@@ -67,7 +67,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Prelude's AI unifies scheduling, leads, CRM, and team optimization, 
+            Prelude's AI agents unifies leads, sales analysis, CRM, and team optimization
             <br className="hidden sm:block" />
             reducing operational overhead by 73%.
           </motion.p>

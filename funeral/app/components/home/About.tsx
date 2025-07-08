@@ -21,13 +21,13 @@ const About = () => {
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-inter">
               <p>
                 Prelude was born from a simple observation: small to medium-sized businesses spend 
-                countless hours juggling scheduling, lead management, customer relationships, and 
+                countless hours juggling scheduling, lead management, data analysis,customer relationships, and 
                 team coordination when they should be focused on what matters most—growing their 
                 business and serving their customers.
               </p>
               
               <p>
-                Our AI-powered business management platform eliminates operational chaos, 
+                Our AI agents business management platform eliminates operational chaos, 
                 streamlining everything from intelligent scheduling to predictive customer analytics. 
                 We reduce operational overhead by 73% while maximizing revenue opportunities. 
                 This isn't just software—it's business transformation.
@@ -46,7 +46,7 @@ const About = () => {
                 <div className="text-gray-600 font-inter">Operational Efficiency<br />Improvement</div>
               </div>
               <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl p-6 border border-blue-100 shadow-sm">
-                <div className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2 font-manrope">5-in-1</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text text-transparent mb-2 font-manrope">6-in-1</div>
                 <div className="text-gray-600 font-inter">Unified Platform<br />Solution</div>
               </div>
             </div>

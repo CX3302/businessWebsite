@@ -52,7 +52,7 @@ const FeatureGrid = () => {
       stats: "40% productivity improvement"
     },
     {
-      feature: "Predictive Dashboard",
+      feature: "Sales Data Analytics",
       benefit: "Real-time business intelligence",
       description: "AI-powered insights into customer health, business metrics, historical performance analysis, and actionable intelligence for strategic decision-making.",
       icon: (
@@ -169,7 +169,7 @@ const FeatureGrid = () => {
           <h3 className="text-3xl font-bold mb-4">Complete Business Intelligence Platform</h3>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
             Unify scheduling, lead management, customer success, employee optimization, and vendor coordination 
-            into one AI-powered platform with predictive analytics and conversational interfaces.
+            into one AI-powered platform with Sales Data Analytics and conversational interfaces.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <motion.span 
@@ -182,7 +182,7 @@ const FeatureGrid = () => {
               className="bg-white/20 backdrop-blur px-6 py-3 rounded-full text-sm font-medium"
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.3)' }}
             >
-              Predictive Analytics
+              Sales Data Analytics
             </motion.span>
             <motion.span 
               className="bg-white/20 backdrop-blur px-6 py-3 rounded-full text-sm font-medium"

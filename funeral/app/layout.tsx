@@ -17,8 +17,8 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL('https://prelude.ai'),
   title: 'Prelude - AI-Powered Business Management Platform',
-  description: 'Transform your business with AI-driven scheduling, lead management, CRM, and employee optimization. Reduce operational overhead by 73% with intelligent automation and predictive analytics.',
-  keywords: ['AI business management', 'intelligent scheduling', 'lead generation', 'CRM automation', 'employee optimization', 'predictive analytics', 'business intelligence'],
+  description: 'Transform your business with AI-driven scheduling, lead management, CRM, and employee optimization. Reduce operational overhead by 73% with intelligent automation and Sales Data Analytics.',
+  keywords: ['AI business management', 'intelligent scheduling', 'lead generation', 'CRM automation', 'employee optimization', 'Sales Data Analytics', 'business intelligence'],
   authors: [{ name: 'Prelude Team' }],
   creator: 'Prelude',
   publisher: 'Prelude',

@@ -13,7 +13,7 @@ const UnderDevelopmentContent = () => {
     analytics: {
       name: "Advanced Analytics Dashboard",
       description: "Enhanced predictive insights and advanced business intelligence with custom reporting and comprehensive data visualization for strategic decision-making",
-      features: ["Real-time performance metrics", "Predictive analytics", "Custom reporting dashboards", "Advanced data visualization", "Business intelligence", "Strategic forecasting"],
+      features: ["Real-time performance metrics", "Sales Data Analytics", "Custom reporting dashboards", "Advanced data visualization", "Business intelligence", "Strategic forecasting"],
       eta: "Q4 2025"
     },
     integrations: {
