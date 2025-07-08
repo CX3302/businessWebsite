@@ -11,18 +11,92 @@ const BookDemo = () => {
     phone: '',
     message: ''
   });
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const validateEmail = (email: string) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const validatePhone = (phone: string) => {
+    const re = /^[\+]?[\d\s\-\(\)]+$/;
+    return phone === '' || re.test(phone);
+  };
+
+  const validateField = (name: string, value: string) => {
+    const newErrors = { ...errors };
+    
+    switch (name) {
+      case 'name':
+        if (!value.trim()) {
+          newErrors.name = 'Name is required';
+        } else if (value.trim().length < 2) {
+          newErrors.name = 'Name must be at least 2 characters';
+        } else {
+          delete newErrors.name;
+        }
+        break;
+      case 'email':
+        if (!value.trim()) {
+          newErrors.email = 'Email is required';
+        } else if (!validateEmail(value)) {
+          newErrors.email = 'Please enter a valid email address';
+        } else {
+          delete newErrors.email;
+        }
+        break;
+      case 'company':
+        if (!value.trim()) {
+          newErrors.company = 'Company name is required';
+        } else if (value.trim().length < 2) {
+          newErrors.company = 'Company name must be at least 2 characters';
+        } else {
+          delete newErrors.company;
+        }
+        break;
+      case 'phone':
+        if (value && !validatePhone(value)) {
+          newErrors.phone = 'Please enter a valid phone number';
+        } else {
+          delete newErrors.phone;
+        }
+        break;
+      default:
+        break;
+    }
+    
+    setErrors(newErrors);
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+    
+    // Real-time validation
+    validateField(name, value);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    
+    // Validate all fields
+    Object.keys(formData).forEach(key => {
+      validateField(key, formData[key as keyof typeof formData]);
+    });
+    
+    // Check if there are any errors
+    const requiredFields = ['name', 'email', 'company'];
+    const hasErrors = requiredFields.some(field => 
+      !formData[field as keyof typeof formData].trim()
+    ) || Object.keys(errors).length > 0;
+    
+    if (!hasErrors) {
+      setIsSubmitted(true);
+    }
   };
 
   return (
@@ -69,62 +143,110 @@ const BookDemo = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                       Full Name *
                     </label>
                     <input
                       type="text"
+                      id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200"
+                      className={`w-full px-4 py-3 rounded-lg border transition-all duration-200 ${
+                        errors.name 
+                          ? 'border-red-500 focus:ring-red-500' 
+                          : 'border-gray-300 focus:ring-gray-500'
+                      } focus:outline-none focus:ring-2 focus:border-transparent`}
                       placeholder="John Smith"
+                      aria-invalid={!!errors.name}
+                      aria-describedby={errors.name ? 'name-error' : undefined}
                     />
+                    {errors.name && (
+                      <span id="name-error" role="alert" className="text-red-500 text-sm mt-1 block">
+                        {errors.name}
+                      </span>
+                    )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                       Email Address *
                     </label>
                     <input
                       type="email"
+                      id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200"
+                      className={`w-full px-4 py-3 rounded-lg border transition-all duration-200 ${
+                        errors.email 
+                          ? 'border-red-500 focus:ring-red-500' 
+                          : 'border-gray-300 focus:ring-gray-500'
+                      } focus:outline-none focus:ring-2 focus:border-transparent`}
                       placeholder="john@company.com"
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? 'email-error' : undefined}
                     />
+                    {errors.email && (
+                      <span id="email-error" role="alert" className="text-red-500 text-sm mt-1 block">
+                        {errors.email}
+                      </span>
+                    )}
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
                       Company Name *
                     </label>
                     <input
                       type="text"
+                      id="company"
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200"
+                      className={`w-full px-4 py-3 rounded-lg border transition-all duration-200 ${
+                        errors.company 
+                          ? 'border-red-500 focus:ring-red-500' 
+                          : 'border-gray-300 focus:ring-gray-500'
+                      } focus:outline-none focus:ring-2 focus:border-transparent`}
                       placeholder="Your Company Name"
+                      aria-invalid={!!errors.company}
+                      aria-describedby={errors.company ? 'company-error' : undefined}
                     />
+                    {errors.company && (
+                      <span id="company-error" role="alert" className="text-red-500 text-sm mt-1 block">
+                        {errors.company}
+                      </span>
+                    )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                       Phone Number
                     </label>
                     <input
                       type="tel"
+                      id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all duration-200"
+                      className={`w-full px-4 py-3 rounded-lg border transition-all duration-200 ${
+                        errors.phone 
+                          ? 'border-red-500 focus:ring-red-500' 
+                          : 'border-gray-300 focus:ring-gray-500'
+                      } focus:outline-none focus:ring-2 focus:border-transparent`}
                       placeholder="+1 (416) 805 3318"
+                      aria-invalid={!!errors.phone}
+                      aria-describedby={errors.phone ? 'phone-error' : undefined}
                     />
+                    {errors.phone && (
+                      <span id="phone-error" role="alert" className="text-red-500 text-sm mt-1 block">
+                        {errors.phone}
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -144,7 +266,12 @@ const BookDemo = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-gray-900 to-blue-900 text-white px-6 py-4 rounded-lg text-lg font-semibold hover:from-blue-900 hover:to-gray-900 transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                  disabled={Object.keys(errors).length > 0}
+                  className={`w-full px-6 py-4 rounded-lg text-lg font-semibold transition-all duration-200 shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
+                    Object.keys(errors).length > 0
+                      ? 'bg-gray-400 text-gray-700 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-gray-900 to-blue-900 text-white hover:from-blue-900 hover:to-gray-900 hover:shadow-xl'
+                  }`}
                 >
                   Book My Demo
                 </button>

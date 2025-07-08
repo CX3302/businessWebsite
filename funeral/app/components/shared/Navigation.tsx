@@ -8,6 +8,8 @@ const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [showProductDropdown, setShowProductDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -17,6 +19,12 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    return () => {
+      if (dropdownTimeout) clearTimeout(dropdownTimeout);
+    };
+  }, [dropdownTimeout]);
 
   const currentProduct = {
     name: "Business Management Suite",
@@ -38,11 +46,13 @@ const Navigation = () => {
   ];
 
   const handleMouseEnter = () => {
+    if (dropdownTimeout) clearTimeout(dropdownTimeout);
     setShowProductDropdown(true);
   };
 
   const handleMouseLeave = () => {
-    setShowProductDropdown(false);
+    const timeout = setTimeout(() => setShowProductDropdown(false), 150);
+    setDropdownTimeout(timeout);
   };
 
   const toggleMobileMenu = () => {
@@ -217,13 +227,72 @@ const Navigation = () => {
             >
               Home
             </Link>
-            <Link
-              href="/product"
-              className="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium font-inter"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              AI Scheduling System
-            </Link>
+            
+            {/* Mobile Products Section */}
+            <div className="space-y-1">
+              <button
+                onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                className="w-full flex items-center justify-between px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium font-inter"
+                aria-expanded={mobileProductsOpen}
+              >
+                Products
+                <svg 
+                  className={`h-4 w-4 transition-transform duration-200 ${mobileProductsOpen ? 'rotate-180' : ''}`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              <div className={`overflow-hidden transition-all duration-300 ${mobileProductsOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="pl-4 space-y-1">
+                  {/* Current Product */}
+                  <div className="px-3 py-2">
+                    <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide font-inter">
+                      Available Now
+                    </div>
+                  </div>
+                  <Link
+                    href={currentProduct.href}
+                    className="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium font-inter"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setMobileProductsOpen(false);
+                    }}
+                  >
+                    {currentProduct.name}
+                  </Link>
+                  
+                  {/* Future Products */}
+                  <div className="px-3 py-2 pt-4">
+                    <div className="text-xs font-semibold text-gray-500 uppercase tracking-wide font-inter">
+                      Coming Soon
+                    </div>
+                  </div>
+                  {futureProducts.map((product, index) => (
+                    <Link
+                      key={index}
+                      href={product.href}
+                      className="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium font-inter"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setMobileProductsOpen(false);
+                      }}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span>{product.name}</span>
+                        <span className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full font-medium">
+                          Soon
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
             <Link
               href="/roadmap"
               className="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50 font-medium font-inter"

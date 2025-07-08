@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Button from '../shared/Button';
 
 const Hero = () => {
   return (
@@ -79,25 +80,30 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <button 
+            <Button 
+              variant="shimmer"
+              size="lg"
               onClick={() => window.location.href = '/contact'}
-              className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-900 to-blue-900 text-white text-lg font-semibold rounded-lg hover:from-blue-900 hover:to-gray-900 transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-manrope"
+              icon={
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              }
+              className="group"
             >
               Book a Demo
-              <svg className="ml-2 -mr-1 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </button>
-            <button 
+            </Button>
+            <Button 
+              variant="magnetic"
+              size="lg"
               onClick={() => {
                 const element = document.getElementById('pain-points');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-900 text-lg font-semibold rounded-lg border-2 border-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 font-manrope"
               aria-label="Scroll to see how Prelude works"
             >
               See How It Works
-            </button>
+            </Button>
           </motion.div>
 
           {/* Trust Indicators */}

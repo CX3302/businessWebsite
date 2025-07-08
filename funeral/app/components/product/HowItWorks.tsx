@@ -147,11 +147,11 @@ const HowItWorks = () => {
         </div>
 
         {/* Steps Display */}
-        <div className="grid lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid lg:grid-cols-4 gap-8 mb-16 items-stretch">
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className={`relative transition-all duration-500 ${
+              className={`relative transition-all duration-500 h-full ${
                 index === activeStep ? 'scale-105' : 'scale-95 opacity-70'
               }`}
               initial={{ opacity: 0, y: 50 }}
@@ -159,7 +159,7 @@ const HowItWorks = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className={`bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 ${
+              <div className={`bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 h-full flex flex-col ${
                 index === activeStep ? 'border-blue-500' : 'border-gray-100'
               }`}>
                 <div className={`w-16 h-16 bg-gradient-to-r ${step.color} rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg ${
@@ -174,7 +174,7 @@ const HowItWorks = () => {
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed flex-grow">
                     {step.description}
                   </p>
                 </div>

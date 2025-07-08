@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Button from './Button';
 
 const CTAFooter = () => {
   return (
@@ -23,21 +24,27 @@ const CTAFooter = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-              <button 
+              <Button
+                variant="glow"
+                size="lg"
                 onClick={() => window.location.href = '/contact'}
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-900 text-lg font-semibold rounded-lg hover:bg-blue-50 transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+                icon={
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                }
+                className="bg-white text-gray-900 hover:bg-blue-50 focus:ring-white"
               >
                 Book a Demo
-                <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </button>
-              <button 
+              </Button>
+              <Button
+                variant="secondary"
+                size="lg"
                 onClick={() => window.location.href = '/product'}
-                className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white text-lg font-semibold rounded-lg border-2 border-white hover:bg-white hover:text-gray-900 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+                className="bg-transparent text-white border-white hover:bg-white hover:text-gray-900 focus:ring-white"
               >
                 Learn More
-              </button>
+              </Button>
             </div>
           </div>
 
